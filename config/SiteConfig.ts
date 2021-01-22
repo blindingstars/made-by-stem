@@ -77,9 +77,9 @@ const manifestOptions = {
 
 const googleFonts = [
   {
-    family: 'Work Sans',
-    variable: true,
-    weights: ['300..700'],
+    // family: 'Work Sans',
+    // variable: true,
+    // weights: ['300..700'],
   },
 ];
 
