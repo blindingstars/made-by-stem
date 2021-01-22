@@ -4,6 +4,8 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import { graphql, useStaticQuery } from 'gatsby';
 import { Link } from '../Link';
 import { NavLink } from './NavLink';
+import { Logo } from '../Logo';
+import { SlimContainer } from '../Container';
 import { useResize } from '../../hooks';
 
 export const Nav: React.FC = () => {
@@ -27,10 +29,10 @@ export const Nav: React.FC = () => {
   useResize(handleResize);
 
   return (
-    <nav className="z-10 w-full py-4 bg-white border-b border-gray-100 shadow-sm md:shadow-none md:bg-transparent md:border-none">
-      <div className="container flex flex-wrap items-center justify-between px-4 mx-auto md:flex-row">
+    <header className="z-10 w-full py-4 bg-primary">
+      <SlimContainer className="flex flex-wrap items-center justify-between md:flex-row">
         <Link to="/" className="relative flex items-center mr-6">
-          <span className="text-2xl">{data.site.siteMetadata.titleShort}</span>
+          <Logo className="pt-1 w-36" />
         </Link>
 
         <div className="block md:hidden">
@@ -51,7 +53,7 @@ export const Nav: React.FC = () => {
           </button>
         </div>
 
-        <div
+        <nav
           id="nav-content"
           className={`flex-grow w-full pt-2 md:flex md:items-center md:w-auto md:pt-0 transition-all ease-in-out transform md:transform-none md:visible ${
             !isOpen && 'hidden'
@@ -62,8 +64,8 @@ export const Nav: React.FC = () => {
             <NavLink to="/about/">About</NavLink>
             <NavLink to="/contact/">Contact</NavLink>
           </div>
-        </div>
-      </div>
-    </nav>
+        </nav>
+      </SlimContainer>
+    </header>
   );
 };

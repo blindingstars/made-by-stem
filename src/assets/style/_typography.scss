@@ -30,6 +30,16 @@
       url(https://fonts.northxsouth.co/dreaming-out-loud-script-slanted/#{$weight}.woff2)
         format('woff2');
   }
+
+  @font-face {
+    font-family: 'Dreaming Out Loud All Caps Slanted';
+    font-style: normal;
+    font-weight: $weight;
+    src: url(https://fonts.northxsouth.co/dreaming-out-loud-all-caps-slanted/#{$weight}.woff)
+        format('woff'),
+      url(https://fonts.northxsouth.co/dreaming-out-loud-all-caps-slanted/#{$weight}.woff2)
+        format('woff2');
+  }
 }
 
 html {
