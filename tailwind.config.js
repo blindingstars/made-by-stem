@@ -55,6 +55,12 @@ const theme = {
       '-apple-system',
       'sans-serif',
     ],
+    caps: [
+      'Dreaming Out Loud All Caps Slanted',
+      'Goldplay',
+      '-apple-system',
+      'sans-serif',
+    ],
   },
   extend: {
     spacing: {
@@ -65,6 +71,12 @@ const theme = {
     },
     borderColor: {
       DEFAULT: '#eeeef0',
+    },
+  },
+  container: {
+    padding: {
+      DEFAULT: '1rem',
+      md: '2rem',
     },
   },
 };
