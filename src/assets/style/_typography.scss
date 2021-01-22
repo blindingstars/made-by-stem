@@ -1,0 +1,37 @@
+@each $weight in (400, 700) {
+  @font-face {
+    font-family: 'Goldplay';
+    font-style: normal;
+    font-weight: $weight;
+    src: url(https://fonts.northxsouth.co/goldplay/#{$weight}.woff)
+        format('woff'),
+      url(https://fonts.northxsouth.co/goldplay/#{$weight}.woff2)
+        format('woff2');
+  }
+}
+
+@each $weight in (400) {
+  @font-face {
+    font-family: 'Goldplay';
+    font-style: italic;
+    font-weight: $weight;
+    src: url(https://fonts.northxsouth.co/goldplay/#{$weight}i.woff)
+        format('woff'),
+      url(https://fonts.northxsouth.co/goldplay/#{$weight}i.woff2)
+        format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Dreaming Out Loud Script';
+    font-style: normal;
+    font-weight: $weight;
+    src: url(https://fonts.northxsouth.co/dreaming-out-loud-script-slanted/#{$weight}.woff)
+        format('woff'),
+      url(https://fonts.northxsouth.co/dreaming-out-loud-script-slanted/#{$weight}.woff2)
+        format('woff2');
+  }
+}
+
+html {
+  font-size: 18px;
+}

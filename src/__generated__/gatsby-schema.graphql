@@ -2163,8 +2163,6 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___legacy
   pluginCreator___pluginOptions___theme_color_in_head
   pluginCreator___pluginOptions___cacheDigest
-  pluginCreator___pluginOptions___anonymize
-  pluginCreator___pluginOptions___respectDNT
   pluginCreator___pluginOptions___mergeSecurityHeaders
   pluginCreator___pluginOptions___mergeLinkHeaders
   pluginCreator___pluginOptions___mergeCachingHeaders
@@ -2175,6 +2173,9 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___fonts___variable
   pluginCreator___pluginOptions___fonts___weights
   pluginCreator___pluginOptions___pathCheck
+  pluginCreator___pluginOptions___trackingId
+  pluginCreator___pluginOptions___anonymize
+  pluginCreator___pluginOptions___respectDNT
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
   pluginCreator___ssrAPIs
@@ -2371,8 +2372,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___legacy
   pluginOptions___theme_color_in_head
   pluginOptions___cacheDigest
-  pluginOptions___anonymize
-  pluginOptions___respectDNT
   pluginOptions___mergeSecurityHeaders
   pluginOptions___mergeLinkHeaders
   pluginOptions___mergeCachingHeaders
@@ -2383,6 +2382,9 @@ enum SitePluginFieldsEnum {
   pluginOptions___fonts___variable
   pluginOptions___fonts___weights
   pluginOptions___pathCheck
+  pluginOptions___trackingId
+  pluginOptions___anonymize
+  pluginOptions___respectDNT
   nodeAPIs
   browserAPIs
   ssrAPIs
@@ -2517,14 +2519,15 @@ type SitePluginPluginOptions {
   legacy: Boolean
   theme_color_in_head: Boolean
   cacheDigest: String
-  anonymize: Boolean
-  respectDNT: Boolean
   mergeSecurityHeaders: Boolean
   mergeLinkHeaders: Boolean
   mergeCachingHeaders: Boolean
   postCssPlugins: [SitePluginPluginOptionsPostCssPlugins]
   fonts: [SitePluginPluginOptionsFonts]
   pathCheck: Boolean
+  trackingId: String
+  anonymize: Boolean
+  respectDNT: Boolean
 }
 
 type SitePluginPluginOptionsEmitPluginDocuments {
@@ -2567,14 +2570,15 @@ input SitePluginPluginOptionsFilterInput {
   legacy: BooleanQueryOperatorInput
   theme_color_in_head: BooleanQueryOperatorInput
   cacheDigest: StringQueryOperatorInput
-  anonymize: BooleanQueryOperatorInput
-  respectDNT: BooleanQueryOperatorInput
   mergeSecurityHeaders: BooleanQueryOperatorInput
   mergeLinkHeaders: BooleanQueryOperatorInput
   mergeCachingHeaders: BooleanQueryOperatorInput
   postCssPlugins: SitePluginPluginOptionsPostCssPluginsFilterListInput
   fonts: SitePluginPluginOptionsFontsFilterListInput
   pathCheck: BooleanQueryOperatorInput
+  trackingId: StringQueryOperatorInput
+  anonymize: BooleanQueryOperatorInput
+  respectDNT: BooleanQueryOperatorInput
 }
 
 type SitePluginPluginOptionsFonts {

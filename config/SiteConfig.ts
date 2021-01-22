@@ -12,7 +12,7 @@ console.log('Using environment config', { BUILD_CONTEXT });
 // BEGIN CONFIG HERE
 
 // This is your domain usually. We will override it with URLs from your CI (netlify usually) for dev/testing if applicable.
-const URL = 'https://gatsby-starter-minimal.netlify.app';
+const URL = 'https://www.madebystem.com';
 const DEFAULT_DEV_URL = 'http://localhost:8000';
 
 const getBaseUrl = () => {
@@ -31,22 +31,22 @@ const baseUrl = getBaseUrl() + pathPrefix;
 
 const social = {
   twitter: {
-    username: 'northxsouth_co',
+    username: 'stephymiehle',
   },
   facebook: {
-    username: 'northxsouth.co',
+    username: 'madebystem',
   },
   instagram: {
-    username: 'northxsouth.co',
+    username: 'madebystem',
   },
 };
 
 const language = 'en';
 
 const siteMetadata = {
-  title: 'Gatsby Starter: Tailwind & TS', // Site title.
-  titleShort: 'Tailwind & TS Starter', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  description: 'Starter Gatsby application', // Website description used for RSS feeds/meta description tag.
+  title: 'Made by Stem', // Site title.
+  titleShort: 'Made by Stem', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
+  description: 'Ceramics, arts, and crafts by Stephy Miehle', // Website description used for RSS feeds/meta description tag.
   pathPrefix,
   siteUrl: baseUrl,
   buildContext: BUILD_CONTEXT,

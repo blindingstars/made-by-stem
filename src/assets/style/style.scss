@@ -3,17 +3,5 @@
 @tailwind utilities;
 
 @import 'tailwindvars';
-
-body,
-html {
-  @apply h-full overflow-x-hidden;
-}
-
-body {
-  @apply flex flex-col;
-}
-
-#___gatsby,
-#gatsby-focus-wrapper {
-  display: contents;
-}
+@import 'layout';
+@import 'typography';
