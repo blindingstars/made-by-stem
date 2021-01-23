@@ -6,7 +6,6 @@ import {
   manifestOptions,
   googleAnalytics,
   pathPrefix,
-  googleFonts,
 } from './config/SiteConfig';
 
 const config: GatsbyConfig = {
@@ -63,12 +62,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
-    {
-      resolve: '@northxsouth/gatsby-plugin-google-fonts',
-      options: {
-        fonts: googleFonts,
-      },
-    },
     'gatsby-plugin-image',
     'gatsby-plugin-preload-fonts',
   ],

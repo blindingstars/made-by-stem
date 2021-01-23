@@ -2303,19 +2303,15 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
   pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
   pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator.pluginOptions.trackingId',
+  pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
+  pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
   pluginCreator___pluginOptions___mergeSecurityHeaders = 'pluginCreator.pluginOptions.mergeSecurityHeaders',
   pluginCreator___pluginOptions___mergeLinkHeaders = 'pluginCreator.pluginOptions.mergeLinkHeaders',
   pluginCreator___pluginOptions___mergeCachingHeaders = 'pluginCreator.pluginOptions.mergeCachingHeaders',
   pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator.pluginOptions.postCssPlugins',
   pluginCreator___pluginOptions___postCssPlugins___postcssPlugin = 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin',
-  pluginCreator___pluginOptions___fonts = 'pluginCreator.pluginOptions.fonts',
-  pluginCreator___pluginOptions___fonts___family = 'pluginCreator.pluginOptions.fonts.family',
-  pluginCreator___pluginOptions___fonts___variable = 'pluginCreator.pluginOptions.fonts.variable',
-  pluginCreator___pluginOptions___fonts___weights = 'pluginCreator.pluginOptions.fonts.weights',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator.pluginOptions.trackingId',
-  pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
-  pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
   pluginCreator___ssrAPIs = 'pluginCreator.ssrAPIs',
@@ -2524,19 +2520,15 @@ enum SitePluginFieldsEnum {
   pluginOptions___legacy = 'pluginOptions.legacy',
   pluginOptions___theme_color_in_head = 'pluginOptions.theme_color_in_head',
   pluginOptions___cacheDigest = 'pluginOptions.cacheDigest',
+  pluginOptions___trackingId = 'pluginOptions.trackingId',
+  pluginOptions___anonymize = 'pluginOptions.anonymize',
+  pluginOptions___respectDNT = 'pluginOptions.respectDNT',
   pluginOptions___mergeSecurityHeaders = 'pluginOptions.mergeSecurityHeaders',
   pluginOptions___mergeLinkHeaders = 'pluginOptions.mergeLinkHeaders',
   pluginOptions___mergeCachingHeaders = 'pluginOptions.mergeCachingHeaders',
   pluginOptions___postCssPlugins = 'pluginOptions.postCssPlugins',
   pluginOptions___postCssPlugins___postcssPlugin = 'pluginOptions.postCssPlugins.postcssPlugin',
-  pluginOptions___fonts = 'pluginOptions.fonts',
-  pluginOptions___fonts___family = 'pluginOptions.fonts.family',
-  pluginOptions___fonts___variable = 'pluginOptions.fonts.variable',
-  pluginOptions___fonts___weights = 'pluginOptions.fonts.weights',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
-  pluginOptions___trackingId = 'pluginOptions.trackingId',
-  pluginOptions___anonymize = 'pluginOptions.anonymize',
-  pluginOptions___respectDNT = 'pluginOptions.respectDNT',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -2671,15 +2663,14 @@ type SitePluginPluginOptions = {
   readonly legacy: Maybe<Scalars['Boolean']>;
   readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
   readonly cacheDigest: Maybe<Scalars['String']>;
+  readonly trackingId: Maybe<Scalars['String']>;
+  readonly anonymize: Maybe<Scalars['Boolean']>;
+  readonly respectDNT: Maybe<Scalars['Boolean']>;
   readonly mergeSecurityHeaders: Maybe<Scalars['Boolean']>;
   readonly mergeLinkHeaders: Maybe<Scalars['Boolean']>;
   readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
-  readonly fonts: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsFonts>>>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
-  readonly trackingId: Maybe<Scalars['String']>;
-  readonly anonymize: Maybe<Scalars['Boolean']>;
-  readonly respectDNT: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsEmitPluginDocuments = {
@@ -2722,31 +2713,14 @@ type SitePluginPluginOptionsFilterInput = {
   readonly legacy: Maybe<BooleanQueryOperatorInput>;
   readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
   readonly cacheDigest: Maybe<StringQueryOperatorInput>;
+  readonly trackingId: Maybe<StringQueryOperatorInput>;
+  readonly anonymize: Maybe<BooleanQueryOperatorInput>;
+  readonly respectDNT: Maybe<BooleanQueryOperatorInput>;
   readonly mergeSecurityHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly mergeLinkHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
-  readonly fonts: Maybe<SitePluginPluginOptionsFontsFilterListInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
-  readonly trackingId: Maybe<StringQueryOperatorInput>;
-  readonly anonymize: Maybe<BooleanQueryOperatorInput>;
-  readonly respectDNT: Maybe<BooleanQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsFonts = {
-  readonly family: Maybe<Scalars['String']>;
-  readonly variable: Maybe<Scalars['Boolean']>;
-  readonly weights: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
-};
-
-type SitePluginPluginOptionsFontsFilterInput = {
-  readonly family: Maybe<StringQueryOperatorInput>;
-  readonly variable: Maybe<BooleanQueryOperatorInput>;
-  readonly weights: Maybe<StringQueryOperatorInput>;
-};
-
-type SitePluginPluginOptionsFontsFilterListInput = {
-  readonly elemMatch: Maybe<SitePluginPluginOptionsFontsFilterInput>;
 };
 
 type SitePluginPluginOptionsIcon_options = {
@@ -2936,6 +2910,11 @@ type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
 
+type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -2953,10 +2932,5 @@ type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
-
-type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
 
 }

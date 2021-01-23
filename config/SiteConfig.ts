@@ -46,7 +46,7 @@ const language = 'en';
 const siteMetadata = {
   title: 'Made by Stem', // Site title.
   titleShort: 'Made by Stem', // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  description: 'Ceramics, arts, and crafts by Stephy Miehle', // Website description used for RSS feeds/meta description tag.
+  description: 'Ceramics, tools, crafts, and resources by Stephy Miehle', // Website description used for RSS feeds/meta description tag.
   pathPrefix,
   siteUrl: baseUrl,
   buildContext: BUILD_CONTEXT,
@@ -75,14 +75,6 @@ const manifestOptions = {
   },
 };
 
-const googleFonts = [
-  {
-    // family: 'Work Sans',
-    // variable: true,
-    // weights: ['300..700'],
-  },
-];
-
 export {
   baseUrl,
   siteMetadata,
@@ -90,5 +82,4 @@ export {
   googleAnalytics,
   social,
   manifestOptions,
-  googleFonts,
 };
