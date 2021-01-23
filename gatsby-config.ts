@@ -6,6 +6,7 @@ import {
   manifestOptions,
   googleAnalytics,
   pathPrefix,
+  ghostOptions,
 } from './config/SiteConfig';
 
 const config: GatsbyConfig = {
@@ -14,6 +15,10 @@ const config: GatsbyConfig = {
   plugins: [
     {
       resolve: 'gatsby-plugin-typescript',
+    },
+    {
+      resolve: 'gatsby-source-ghost',
+      options: ghostOptions,
     },
     {
       resolve: 'gatsby-plugin-typegen',
@@ -64,6 +69,10 @@ const config: GatsbyConfig = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-image',
     'gatsby-plugin-preload-fonts',
+    {
+      resolve: `gatsby-source-ghost`,
+      options: ghostOptions,
+    },
   ],
 };
 

@@ -51,12 +51,15 @@ const theme = {
     ],
     accent: [
       'Dreaming Out Loud Script',
+      'Dreaming Outloud Script Slanted PRO',
+      'Dreaming Outloud Script Slanted',
       'Goldplay',
       '-apple-system',
       'sans-serif',
     ],
     caps: [
       'Dreaming Out Loud All Caps Slanted',
+      'Dreaming Outloud AllCaps Slanted',
       'Goldplay',
       '-apple-system',
       'sans-serif',

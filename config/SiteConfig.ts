@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import { GatsbyConfig } from 'gatsby';
 import pkg from '../package.json';
 
 dotenv.config();
@@ -75,6 +74,12 @@ const manifestOptions = {
   },
 };
 
+const ghostOptions = {
+  apiUrl: process.env.GHOST_API_URL,
+  contentApiKey: process.env.GHOST_CONTENT_KEY,
+  version: 'v3',
+};
+
 export {
   baseUrl,
   siteMetadata,
@@ -82,4 +87,5 @@ export {
   googleAnalytics,
   social,
   manifestOptions,
+  ghostOptions,
 };

@@ -6,7 +6,7 @@ import { Link } from '../Link';
 import { NavLink } from './NavLink';
 import { Logo } from '../Logo';
 import { SlimContainer } from '../Container';
-import { useResize } from '../../hooks';
+import { useResize, useGhostNavItems } from '../../hooks';
 
 export const Nav: React.FC = () => {
   const [isOpen, setNavOpen] = React.useState<boolean>(false);
@@ -20,6 +20,7 @@ export const Nav: React.FC = () => {
       }
     }
   `);
+  const navItems = useGhostNavItems();
   const handleResize = () => {
     return setNavOpen(false);
   };
@@ -60,7 +61,12 @@ export const Nav: React.FC = () => {
           }`}
         >
           <div className="flex flex-col items-start justify-end flex-1 -mx-1 md:items-center md:flex-row">
-            <NavLink to="/">Home</NavLink>
+            {/* <NavLink to="/">Home</NavLink> */}
+            {navItems.map((item) => (
+              <NavLink key={item.url} to={item.url}>
+                {item.label}
+              </NavLink>
+            ))}
           </div>
         </nav>
       </SlimContainer>

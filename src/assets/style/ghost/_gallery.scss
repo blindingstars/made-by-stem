@@ -1,0 +1,13 @@
+.kg-gallery {
+  &-container {
+    @apply flex flex-col flex-wrap;
+  }
+
+  &-row {
+    @apply -mx-4 w-full;
+  }
+
+  &-image {
+    @apply w-full h-full object-cover m-4;
+  }
+}
