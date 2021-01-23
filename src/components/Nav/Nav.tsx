@@ -61,8 +61,6 @@ export const Nav: React.FC = () => {
         >
           <div className="flex flex-col items-start justify-end flex-1 -mx-1 md:items-center md:flex-row">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/about/">About</NavLink>
-            <NavLink to="/contact/">Contact</NavLink>
           </div>
         </nav>
       </SlimContainer>

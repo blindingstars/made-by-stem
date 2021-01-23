@@ -2903,7 +2903,7 @@ type AboutPageQuery = { readonly headerImage: Maybe<{ readonly childImageSharp: 
 type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type HomepageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'titleShort' | 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>>, readonly headerImage: Maybe<{ readonly childImageSharp: Maybe<Pick<ImageSharp, 'gatsbyImageData'>> }> };
+type HomepageQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'titleShort' | 'buildContext' | 'version'>> }>, readonly siteBuildMetadata: Maybe<Pick<SiteBuildMetadata, 'buildTime'>> };
 
 type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
 
