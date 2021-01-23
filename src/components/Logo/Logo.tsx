@@ -3,6 +3,7 @@ import * as React from 'react';
 interface LogoProps {
   madeByColor?: string;
   stemColor?: string;
+  className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({
