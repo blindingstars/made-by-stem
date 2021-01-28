@@ -27,5 +27,9 @@
 
   li {
     @apply mb-2;
+
+    &::marker {
+      @apply text-mint-500;
+    }
   }
 }
