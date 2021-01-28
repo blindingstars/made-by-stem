@@ -1123,6 +1123,10 @@ type GhostPage = Node & {
   readonly access: Maybe<Scalars['Boolean']>;
   readonly ghostId: Maybe<Scalars['String']>;
   readonly gatsbyPath: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type HtmlRehype */
+  readonly childrenHtmlRehype: Maybe<ReadonlyArray<Maybe<HtmlRehype>>>;
+  /** Returns the first child node of type HtmlRehype or null if there are no children of given type on this node */
+  readonly childHtmlRehype: Maybe<HtmlRehype>;
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
@@ -1447,6 +1451,95 @@ enum GhostPageFieldsEnum {
   access = 'access',
   ghostId = 'ghostId',
   gatsbyPath = 'gatsbyPath',
+  childrenHtmlRehype = 'childrenHtmlRehype',
+  childrenHtmlRehype___html = 'childrenHtmlRehype.html',
+  childrenHtmlRehype___htmlAst = 'childrenHtmlRehype.htmlAst',
+  childrenHtmlRehype___tableOfContents = 'childrenHtmlRehype.tableOfContents',
+  childrenHtmlRehype___context___url = 'childrenHtmlRehype.context.url',
+  childrenHtmlRehype___context___slug = 'childrenHtmlRehype.context.slug',
+  childrenHtmlRehype___context___feature_image = 'childrenHtmlRehype.context.feature_image',
+  childrenHtmlRehype___id = 'childrenHtmlRehype.id',
+  childrenHtmlRehype___parent___id = 'childrenHtmlRehype.parent.id',
+  childrenHtmlRehype___parent___parent___id = 'childrenHtmlRehype.parent.parent.id',
+  childrenHtmlRehype___parent___parent___children = 'childrenHtmlRehype.parent.parent.children',
+  childrenHtmlRehype___parent___children = 'childrenHtmlRehype.parent.children',
+  childrenHtmlRehype___parent___children___id = 'childrenHtmlRehype.parent.children.id',
+  childrenHtmlRehype___parent___children___children = 'childrenHtmlRehype.parent.children.children',
+  childrenHtmlRehype___parent___internal___content = 'childrenHtmlRehype.parent.internal.content',
+  childrenHtmlRehype___parent___internal___contentDigest = 'childrenHtmlRehype.parent.internal.contentDigest',
+  childrenHtmlRehype___parent___internal___description = 'childrenHtmlRehype.parent.internal.description',
+  childrenHtmlRehype___parent___internal___fieldOwners = 'childrenHtmlRehype.parent.internal.fieldOwners',
+  childrenHtmlRehype___parent___internal___ignoreType = 'childrenHtmlRehype.parent.internal.ignoreType',
+  childrenHtmlRehype___parent___internal___mediaType = 'childrenHtmlRehype.parent.internal.mediaType',
+  childrenHtmlRehype___parent___internal___owner = 'childrenHtmlRehype.parent.internal.owner',
+  childrenHtmlRehype___parent___internal___type = 'childrenHtmlRehype.parent.internal.type',
+  childrenHtmlRehype___children = 'childrenHtmlRehype.children',
+  childrenHtmlRehype___children___id = 'childrenHtmlRehype.children.id',
+  childrenHtmlRehype___children___parent___id = 'childrenHtmlRehype.children.parent.id',
+  childrenHtmlRehype___children___parent___children = 'childrenHtmlRehype.children.parent.children',
+  childrenHtmlRehype___children___children = 'childrenHtmlRehype.children.children',
+  childrenHtmlRehype___children___children___id = 'childrenHtmlRehype.children.children.id',
+  childrenHtmlRehype___children___children___children = 'childrenHtmlRehype.children.children.children',
+  childrenHtmlRehype___children___internal___content = 'childrenHtmlRehype.children.internal.content',
+  childrenHtmlRehype___children___internal___contentDigest = 'childrenHtmlRehype.children.internal.contentDigest',
+  childrenHtmlRehype___children___internal___description = 'childrenHtmlRehype.children.internal.description',
+  childrenHtmlRehype___children___internal___fieldOwners = 'childrenHtmlRehype.children.internal.fieldOwners',
+  childrenHtmlRehype___children___internal___ignoreType = 'childrenHtmlRehype.children.internal.ignoreType',
+  childrenHtmlRehype___children___internal___mediaType = 'childrenHtmlRehype.children.internal.mediaType',
+  childrenHtmlRehype___children___internal___owner = 'childrenHtmlRehype.children.internal.owner',
+  childrenHtmlRehype___children___internal___type = 'childrenHtmlRehype.children.internal.type',
+  childrenHtmlRehype___internal___content = 'childrenHtmlRehype.internal.content',
+  childrenHtmlRehype___internal___contentDigest = 'childrenHtmlRehype.internal.contentDigest',
+  childrenHtmlRehype___internal___description = 'childrenHtmlRehype.internal.description',
+  childrenHtmlRehype___internal___fieldOwners = 'childrenHtmlRehype.internal.fieldOwners',
+  childrenHtmlRehype___internal___ignoreType = 'childrenHtmlRehype.internal.ignoreType',
+  childrenHtmlRehype___internal___mediaType = 'childrenHtmlRehype.internal.mediaType',
+  childrenHtmlRehype___internal___owner = 'childrenHtmlRehype.internal.owner',
+  childrenHtmlRehype___internal___type = 'childrenHtmlRehype.internal.type',
+  childHtmlRehype___html = 'childHtmlRehype.html',
+  childHtmlRehype___htmlAst = 'childHtmlRehype.htmlAst',
+  childHtmlRehype___tableOfContents = 'childHtmlRehype.tableOfContents',
+  childHtmlRehype___context___url = 'childHtmlRehype.context.url',
+  childHtmlRehype___context___slug = 'childHtmlRehype.context.slug',
+  childHtmlRehype___context___feature_image = 'childHtmlRehype.context.feature_image',
+  childHtmlRehype___id = 'childHtmlRehype.id',
+  childHtmlRehype___parent___id = 'childHtmlRehype.parent.id',
+  childHtmlRehype___parent___parent___id = 'childHtmlRehype.parent.parent.id',
+  childHtmlRehype___parent___parent___children = 'childHtmlRehype.parent.parent.children',
+  childHtmlRehype___parent___children = 'childHtmlRehype.parent.children',
+  childHtmlRehype___parent___children___id = 'childHtmlRehype.parent.children.id',
+  childHtmlRehype___parent___children___children = 'childHtmlRehype.parent.children.children',
+  childHtmlRehype___parent___internal___content = 'childHtmlRehype.parent.internal.content',
+  childHtmlRehype___parent___internal___contentDigest = 'childHtmlRehype.parent.internal.contentDigest',
+  childHtmlRehype___parent___internal___description = 'childHtmlRehype.parent.internal.description',
+  childHtmlRehype___parent___internal___fieldOwners = 'childHtmlRehype.parent.internal.fieldOwners',
+  childHtmlRehype___parent___internal___ignoreType = 'childHtmlRehype.parent.internal.ignoreType',
+  childHtmlRehype___parent___internal___mediaType = 'childHtmlRehype.parent.internal.mediaType',
+  childHtmlRehype___parent___internal___owner = 'childHtmlRehype.parent.internal.owner',
+  childHtmlRehype___parent___internal___type = 'childHtmlRehype.parent.internal.type',
+  childHtmlRehype___children = 'childHtmlRehype.children',
+  childHtmlRehype___children___id = 'childHtmlRehype.children.id',
+  childHtmlRehype___children___parent___id = 'childHtmlRehype.children.parent.id',
+  childHtmlRehype___children___parent___children = 'childHtmlRehype.children.parent.children',
+  childHtmlRehype___children___children = 'childHtmlRehype.children.children',
+  childHtmlRehype___children___children___id = 'childHtmlRehype.children.children.id',
+  childHtmlRehype___children___children___children = 'childHtmlRehype.children.children.children',
+  childHtmlRehype___children___internal___content = 'childHtmlRehype.children.internal.content',
+  childHtmlRehype___children___internal___contentDigest = 'childHtmlRehype.children.internal.contentDigest',
+  childHtmlRehype___children___internal___description = 'childHtmlRehype.children.internal.description',
+  childHtmlRehype___children___internal___fieldOwners = 'childHtmlRehype.children.internal.fieldOwners',
+  childHtmlRehype___children___internal___ignoreType = 'childHtmlRehype.children.internal.ignoreType',
+  childHtmlRehype___children___internal___mediaType = 'childHtmlRehype.children.internal.mediaType',
+  childHtmlRehype___children___internal___owner = 'childHtmlRehype.children.internal.owner',
+  childHtmlRehype___children___internal___type = 'childHtmlRehype.children.internal.type',
+  childHtmlRehype___internal___content = 'childHtmlRehype.internal.content',
+  childHtmlRehype___internal___contentDigest = 'childHtmlRehype.internal.contentDigest',
+  childHtmlRehype___internal___description = 'childHtmlRehype.internal.description',
+  childHtmlRehype___internal___fieldOwners = 'childHtmlRehype.internal.fieldOwners',
+  childHtmlRehype___internal___ignoreType = 'childHtmlRehype.internal.ignoreType',
+  childHtmlRehype___internal___mediaType = 'childHtmlRehype.internal.mediaType',
+  childHtmlRehype___internal___owner = 'childHtmlRehype.internal.owner',
+  childHtmlRehype___internal___type = 'childHtmlRehype.internal.type',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
   parent___parent___parent___id = 'parent.parent.parent.id',
@@ -1575,6 +1668,8 @@ type GhostPageFilterInput = {
   readonly access: Maybe<BooleanQueryOperatorInput>;
   readonly ghostId: Maybe<StringQueryOperatorInput>;
   readonly gatsbyPath: Maybe<StringQueryOperatorInput>;
+  readonly childrenHtmlRehype: Maybe<HtmlRehypeFilterListInput>;
+  readonly childHtmlRehype: Maybe<HtmlRehypeFilterInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
@@ -1635,6 +1730,10 @@ type GhostPost = Node & {
   readonly email_recipient_filter: Maybe<Scalars['String']>;
   readonly access: Maybe<Scalars['Boolean']>;
   readonly ghostId: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type HtmlRehype */
+  readonly childrenHtmlRehype: Maybe<ReadonlyArray<Maybe<HtmlRehype>>>;
+  /** Returns the first child node of type HtmlRehype or null if there are no children of given type on this node */
+  readonly childHtmlRehype: Maybe<HtmlRehype>;
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
@@ -1962,6 +2061,95 @@ enum GhostPostFieldsEnum {
   email_recipient_filter = 'email_recipient_filter',
   access = 'access',
   ghostId = 'ghostId',
+  childrenHtmlRehype = 'childrenHtmlRehype',
+  childrenHtmlRehype___html = 'childrenHtmlRehype.html',
+  childrenHtmlRehype___htmlAst = 'childrenHtmlRehype.htmlAst',
+  childrenHtmlRehype___tableOfContents = 'childrenHtmlRehype.tableOfContents',
+  childrenHtmlRehype___context___url = 'childrenHtmlRehype.context.url',
+  childrenHtmlRehype___context___slug = 'childrenHtmlRehype.context.slug',
+  childrenHtmlRehype___context___feature_image = 'childrenHtmlRehype.context.feature_image',
+  childrenHtmlRehype___id = 'childrenHtmlRehype.id',
+  childrenHtmlRehype___parent___id = 'childrenHtmlRehype.parent.id',
+  childrenHtmlRehype___parent___parent___id = 'childrenHtmlRehype.parent.parent.id',
+  childrenHtmlRehype___parent___parent___children = 'childrenHtmlRehype.parent.parent.children',
+  childrenHtmlRehype___parent___children = 'childrenHtmlRehype.parent.children',
+  childrenHtmlRehype___parent___children___id = 'childrenHtmlRehype.parent.children.id',
+  childrenHtmlRehype___parent___children___children = 'childrenHtmlRehype.parent.children.children',
+  childrenHtmlRehype___parent___internal___content = 'childrenHtmlRehype.parent.internal.content',
+  childrenHtmlRehype___parent___internal___contentDigest = 'childrenHtmlRehype.parent.internal.contentDigest',
+  childrenHtmlRehype___parent___internal___description = 'childrenHtmlRehype.parent.internal.description',
+  childrenHtmlRehype___parent___internal___fieldOwners = 'childrenHtmlRehype.parent.internal.fieldOwners',
+  childrenHtmlRehype___parent___internal___ignoreType = 'childrenHtmlRehype.parent.internal.ignoreType',
+  childrenHtmlRehype___parent___internal___mediaType = 'childrenHtmlRehype.parent.internal.mediaType',
+  childrenHtmlRehype___parent___internal___owner = 'childrenHtmlRehype.parent.internal.owner',
+  childrenHtmlRehype___parent___internal___type = 'childrenHtmlRehype.parent.internal.type',
+  childrenHtmlRehype___children = 'childrenHtmlRehype.children',
+  childrenHtmlRehype___children___id = 'childrenHtmlRehype.children.id',
+  childrenHtmlRehype___children___parent___id = 'childrenHtmlRehype.children.parent.id',
+  childrenHtmlRehype___children___parent___children = 'childrenHtmlRehype.children.parent.children',
+  childrenHtmlRehype___children___children = 'childrenHtmlRehype.children.children',
+  childrenHtmlRehype___children___children___id = 'childrenHtmlRehype.children.children.id',
+  childrenHtmlRehype___children___children___children = 'childrenHtmlRehype.children.children.children',
+  childrenHtmlRehype___children___internal___content = 'childrenHtmlRehype.children.internal.content',
+  childrenHtmlRehype___children___internal___contentDigest = 'childrenHtmlRehype.children.internal.contentDigest',
+  childrenHtmlRehype___children___internal___description = 'childrenHtmlRehype.children.internal.description',
+  childrenHtmlRehype___children___internal___fieldOwners = 'childrenHtmlRehype.children.internal.fieldOwners',
+  childrenHtmlRehype___children___internal___ignoreType = 'childrenHtmlRehype.children.internal.ignoreType',
+  childrenHtmlRehype___children___internal___mediaType = 'childrenHtmlRehype.children.internal.mediaType',
+  childrenHtmlRehype___children___internal___owner = 'childrenHtmlRehype.children.internal.owner',
+  childrenHtmlRehype___children___internal___type = 'childrenHtmlRehype.children.internal.type',
+  childrenHtmlRehype___internal___content = 'childrenHtmlRehype.internal.content',
+  childrenHtmlRehype___internal___contentDigest = 'childrenHtmlRehype.internal.contentDigest',
+  childrenHtmlRehype___internal___description = 'childrenHtmlRehype.internal.description',
+  childrenHtmlRehype___internal___fieldOwners = 'childrenHtmlRehype.internal.fieldOwners',
+  childrenHtmlRehype___internal___ignoreType = 'childrenHtmlRehype.internal.ignoreType',
+  childrenHtmlRehype___internal___mediaType = 'childrenHtmlRehype.internal.mediaType',
+  childrenHtmlRehype___internal___owner = 'childrenHtmlRehype.internal.owner',
+  childrenHtmlRehype___internal___type = 'childrenHtmlRehype.internal.type',
+  childHtmlRehype___html = 'childHtmlRehype.html',
+  childHtmlRehype___htmlAst = 'childHtmlRehype.htmlAst',
+  childHtmlRehype___tableOfContents = 'childHtmlRehype.tableOfContents',
+  childHtmlRehype___context___url = 'childHtmlRehype.context.url',
+  childHtmlRehype___context___slug = 'childHtmlRehype.context.slug',
+  childHtmlRehype___context___feature_image = 'childHtmlRehype.context.feature_image',
+  childHtmlRehype___id = 'childHtmlRehype.id',
+  childHtmlRehype___parent___id = 'childHtmlRehype.parent.id',
+  childHtmlRehype___parent___parent___id = 'childHtmlRehype.parent.parent.id',
+  childHtmlRehype___parent___parent___children = 'childHtmlRehype.parent.parent.children',
+  childHtmlRehype___parent___children = 'childHtmlRehype.parent.children',
+  childHtmlRehype___parent___children___id = 'childHtmlRehype.parent.children.id',
+  childHtmlRehype___parent___children___children = 'childHtmlRehype.parent.children.children',
+  childHtmlRehype___parent___internal___content = 'childHtmlRehype.parent.internal.content',
+  childHtmlRehype___parent___internal___contentDigest = 'childHtmlRehype.parent.internal.contentDigest',
+  childHtmlRehype___parent___internal___description = 'childHtmlRehype.parent.internal.description',
+  childHtmlRehype___parent___internal___fieldOwners = 'childHtmlRehype.parent.internal.fieldOwners',
+  childHtmlRehype___parent___internal___ignoreType = 'childHtmlRehype.parent.internal.ignoreType',
+  childHtmlRehype___parent___internal___mediaType = 'childHtmlRehype.parent.internal.mediaType',
+  childHtmlRehype___parent___internal___owner = 'childHtmlRehype.parent.internal.owner',
+  childHtmlRehype___parent___internal___type = 'childHtmlRehype.parent.internal.type',
+  childHtmlRehype___children = 'childHtmlRehype.children',
+  childHtmlRehype___children___id = 'childHtmlRehype.children.id',
+  childHtmlRehype___children___parent___id = 'childHtmlRehype.children.parent.id',
+  childHtmlRehype___children___parent___children = 'childHtmlRehype.children.parent.children',
+  childHtmlRehype___children___children = 'childHtmlRehype.children.children',
+  childHtmlRehype___children___children___id = 'childHtmlRehype.children.children.id',
+  childHtmlRehype___children___children___children = 'childHtmlRehype.children.children.children',
+  childHtmlRehype___children___internal___content = 'childHtmlRehype.children.internal.content',
+  childHtmlRehype___children___internal___contentDigest = 'childHtmlRehype.children.internal.contentDigest',
+  childHtmlRehype___children___internal___description = 'childHtmlRehype.children.internal.description',
+  childHtmlRehype___children___internal___fieldOwners = 'childHtmlRehype.children.internal.fieldOwners',
+  childHtmlRehype___children___internal___ignoreType = 'childHtmlRehype.children.internal.ignoreType',
+  childHtmlRehype___children___internal___mediaType = 'childHtmlRehype.children.internal.mediaType',
+  childHtmlRehype___children___internal___owner = 'childHtmlRehype.children.internal.owner',
+  childHtmlRehype___children___internal___type = 'childHtmlRehype.children.internal.type',
+  childHtmlRehype___internal___content = 'childHtmlRehype.internal.content',
+  childHtmlRehype___internal___contentDigest = 'childHtmlRehype.internal.contentDigest',
+  childHtmlRehype___internal___description = 'childHtmlRehype.internal.description',
+  childHtmlRehype___internal___fieldOwners = 'childHtmlRehype.internal.fieldOwners',
+  childHtmlRehype___internal___ignoreType = 'childHtmlRehype.internal.ignoreType',
+  childHtmlRehype___internal___mediaType = 'childHtmlRehype.internal.mediaType',
+  childHtmlRehype___internal___owner = 'childHtmlRehype.internal.owner',
+  childHtmlRehype___internal___type = 'childHtmlRehype.internal.type',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
   parent___parent___parent___id = 'parent.parent.parent.id',
@@ -2090,6 +2278,8 @@ type GhostPostFilterInput = {
   readonly email_recipient_filter: Maybe<StringQueryOperatorInput>;
   readonly access: Maybe<BooleanQueryOperatorInput>;
   readonly ghostId: Maybe<StringQueryOperatorInput>;
+  readonly childrenHtmlRehype: Maybe<HtmlRehypeFilterListInput>;
+  readonly childHtmlRehype: Maybe<HtmlRehypeFilterInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
@@ -2546,6 +2736,180 @@ type GhostTagGroupConnection = {
 
 type GhostTagSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<GhostTagFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
+type HtmlRehype = Node & {
+  readonly html: Maybe<Scalars['String']>;
+  readonly htmlAst: Maybe<Scalars['JSON']>;
+  readonly tableOfContents: Maybe<Scalars['JSON']>;
+  readonly context: Maybe<HtmlRehypeContext>;
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+type HtmlRehypeConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<HtmlRehypeEdge>;
+  readonly nodes: ReadonlyArray<HtmlRehype>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly group: ReadonlyArray<HtmlRehypeGroupConnection>;
+};
+
+
+type HtmlRehypeConnection_distinctArgs = {
+  field: HtmlRehypeFieldsEnum;
+};
+
+
+type HtmlRehypeConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: HtmlRehypeFieldsEnum;
+};
+
+type HtmlRehypeContext = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
+  readonly feature_image: Maybe<Scalars['String']>;
+};
+
+type HtmlRehypeContextFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly slug: Maybe<StringQueryOperatorInput>;
+  readonly feature_image: Maybe<StringQueryOperatorInput>;
+};
+
+type HtmlRehypeEdge = {
+  readonly next: Maybe<HtmlRehype>;
+  readonly node: HtmlRehype;
+  readonly previous: Maybe<HtmlRehype>;
+};
+
+enum HtmlRehypeFieldsEnum {
+  html = 'html',
+  htmlAst = 'htmlAst',
+  tableOfContents = 'tableOfContents',
+  context___url = 'context.url',
+  context___slug = 'context.slug',
+  context___feature_image = 'context.feature_image',
+  id = 'id',
+  parent___id = 'parent.id',
+  parent___parent___id = 'parent.parent.id',
+  parent___parent___parent___id = 'parent.parent.parent.id',
+  parent___parent___parent___children = 'parent.parent.parent.children',
+  parent___parent___children = 'parent.parent.children',
+  parent___parent___children___id = 'parent.parent.children.id',
+  parent___parent___children___children = 'parent.parent.children.children',
+  parent___parent___internal___content = 'parent.parent.internal.content',
+  parent___parent___internal___contentDigest = 'parent.parent.internal.contentDigest',
+  parent___parent___internal___description = 'parent.parent.internal.description',
+  parent___parent___internal___fieldOwners = 'parent.parent.internal.fieldOwners',
+  parent___parent___internal___ignoreType = 'parent.parent.internal.ignoreType',
+  parent___parent___internal___mediaType = 'parent.parent.internal.mediaType',
+  parent___parent___internal___owner = 'parent.parent.internal.owner',
+  parent___parent___internal___type = 'parent.parent.internal.type',
+  parent___children = 'parent.children',
+  parent___children___id = 'parent.children.id',
+  parent___children___parent___id = 'parent.children.parent.id',
+  parent___children___parent___children = 'parent.children.parent.children',
+  parent___children___children = 'parent.children.children',
+  parent___children___children___id = 'parent.children.children.id',
+  parent___children___children___children = 'parent.children.children.children',
+  parent___children___internal___content = 'parent.children.internal.content',
+  parent___children___internal___contentDigest = 'parent.children.internal.contentDigest',
+  parent___children___internal___description = 'parent.children.internal.description',
+  parent___children___internal___fieldOwners = 'parent.children.internal.fieldOwners',
+  parent___children___internal___ignoreType = 'parent.children.internal.ignoreType',
+  parent___children___internal___mediaType = 'parent.children.internal.mediaType',
+  parent___children___internal___owner = 'parent.children.internal.owner',
+  parent___children___internal___type = 'parent.children.internal.type',
+  parent___internal___content = 'parent.internal.content',
+  parent___internal___contentDigest = 'parent.internal.contentDigest',
+  parent___internal___description = 'parent.internal.description',
+  parent___internal___fieldOwners = 'parent.internal.fieldOwners',
+  parent___internal___ignoreType = 'parent.internal.ignoreType',
+  parent___internal___mediaType = 'parent.internal.mediaType',
+  parent___internal___owner = 'parent.internal.owner',
+  parent___internal___type = 'parent.internal.type',
+  children = 'children',
+  children___id = 'children.id',
+  children___parent___id = 'children.parent.id',
+  children___parent___parent___id = 'children.parent.parent.id',
+  children___parent___parent___children = 'children.parent.parent.children',
+  children___parent___children = 'children.parent.children',
+  children___parent___children___id = 'children.parent.children.id',
+  children___parent___children___children = 'children.parent.children.children',
+  children___parent___internal___content = 'children.parent.internal.content',
+  children___parent___internal___contentDigest = 'children.parent.internal.contentDigest',
+  children___parent___internal___description = 'children.parent.internal.description',
+  children___parent___internal___fieldOwners = 'children.parent.internal.fieldOwners',
+  children___parent___internal___ignoreType = 'children.parent.internal.ignoreType',
+  children___parent___internal___mediaType = 'children.parent.internal.mediaType',
+  children___parent___internal___owner = 'children.parent.internal.owner',
+  children___parent___internal___type = 'children.parent.internal.type',
+  children___children = 'children.children',
+  children___children___id = 'children.children.id',
+  children___children___parent___id = 'children.children.parent.id',
+  children___children___parent___children = 'children.children.parent.children',
+  children___children___children = 'children.children.children',
+  children___children___children___id = 'children.children.children.id',
+  children___children___children___children = 'children.children.children.children',
+  children___children___internal___content = 'children.children.internal.content',
+  children___children___internal___contentDigest = 'children.children.internal.contentDigest',
+  children___children___internal___description = 'children.children.internal.description',
+  children___children___internal___fieldOwners = 'children.children.internal.fieldOwners',
+  children___children___internal___ignoreType = 'children.children.internal.ignoreType',
+  children___children___internal___mediaType = 'children.children.internal.mediaType',
+  children___children___internal___owner = 'children.children.internal.owner',
+  children___children___internal___type = 'children.children.internal.type',
+  children___internal___content = 'children.internal.content',
+  children___internal___contentDigest = 'children.internal.contentDigest',
+  children___internal___description = 'children.internal.description',
+  children___internal___fieldOwners = 'children.internal.fieldOwners',
+  children___internal___ignoreType = 'children.internal.ignoreType',
+  children___internal___mediaType = 'children.internal.mediaType',
+  children___internal___owner = 'children.internal.owner',
+  children___internal___type = 'children.internal.type',
+  internal___content = 'internal.content',
+  internal___contentDigest = 'internal.contentDigest',
+  internal___description = 'internal.description',
+  internal___fieldOwners = 'internal.fieldOwners',
+  internal___ignoreType = 'internal.ignoreType',
+  internal___mediaType = 'internal.mediaType',
+  internal___owner = 'internal.owner',
+  internal___type = 'internal.type'
+}
+
+type HtmlRehypeFilterInput = {
+  readonly html: Maybe<StringQueryOperatorInput>;
+  readonly htmlAst: Maybe<JSONQueryOperatorInput>;
+  readonly tableOfContents: Maybe<JSONQueryOperatorInput>;
+  readonly context: Maybe<HtmlRehypeContextFilterInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type HtmlRehypeFilterListInput = {
+  readonly elemMatch: Maybe<HtmlRehypeFilterInput>;
+};
+
+type HtmlRehypeGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<HtmlRehypeEdge>;
+  readonly nodes: ReadonlyArray<HtmlRehype>;
+  readonly pageInfo: PageInfo;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+type HtmlRehypeSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<HtmlRehypeFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
@@ -3218,6 +3582,8 @@ type Query = {
   readonly allGhostSettings: GhostSettingsConnection;
   readonly imageSharp: Maybe<ImageSharp>;
   readonly allImageSharp: ImageSharpConnection;
+  readonly htmlRehype: Maybe<HtmlRehype>;
+  readonly allHtmlRehype: HtmlRehypeConnection;
   readonly siteBuildMetadata: Maybe<SiteBuildMetadata>;
   readonly allSiteBuildMetadata: SiteBuildMetadataConnection;
   readonly sitePlugin: Maybe<SitePlugin>;
@@ -3329,8 +3695,6 @@ type Query_allDirectoryArgs = {
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
   siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   flags: Maybe<SiteFlagsFilterInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
@@ -3355,15 +3719,15 @@ type Query_sitePageArgs = {
   internalComponentName: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   matchPath: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
   isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
   context: Maybe<SitePageContextFilterInput>;
   pluginCreator: Maybe<SitePluginFilterInput>;
   pluginCreatorId: Maybe<StringQueryOperatorInput>;
   componentPath: Maybe<StringQueryOperatorInput>;
-  id: Maybe<StringQueryOperatorInput>;
-  parent: Maybe<NodeFilterInput>;
-  children: Maybe<NodeFilterListInput>;
-  internal: Maybe<InternalFilterInput>;
 };
 
 
@@ -3416,6 +3780,8 @@ type Query_ghostPostArgs = {
   email_recipient_filter: Maybe<StringQueryOperatorInput>;
   access: Maybe<BooleanQueryOperatorInput>;
   ghostId: Maybe<StringQueryOperatorInput>;
+  childrenHtmlRehype: Maybe<HtmlRehypeFilterListInput>;
+  childHtmlRehype: Maybe<HtmlRehypeFilterInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
@@ -3471,6 +3837,8 @@ type Query_ghostPageArgs = {
   access: Maybe<BooleanQueryOperatorInput>;
   ghostId: Maybe<StringQueryOperatorInput>;
   gatsbyPath: Maybe<StringQueryOperatorInput>;
+  childrenHtmlRehype: Maybe<HtmlRehypeFilterListInput>;
+  childHtmlRehype: Maybe<HtmlRehypeFilterInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
@@ -3619,6 +3987,26 @@ type Query_allImageSharpArgs = {
 };
 
 
+type Query_htmlRehypeArgs = {
+  html: Maybe<StringQueryOperatorInput>;
+  htmlAst: Maybe<JSONQueryOperatorInput>;
+  tableOfContents: Maybe<JSONQueryOperatorInput>;
+  context: Maybe<HtmlRehypeContextFilterInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allHtmlRehypeArgs = {
+  filter: Maybe<HtmlRehypeFilterInput>;
+  sort: Maybe<HtmlRehypeSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
 type Query_siteBuildMetadataArgs = {
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -3663,8 +4051,6 @@ type Query_allSitePluginArgs = {
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
   readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly flags: Maybe<SiteFlags>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
@@ -3877,8 +4263,6 @@ enum SiteFieldsEnum {
   siteMetadata___social___facebook___username = 'siteMetadata.social.facebook.username',
   siteMetadata___social___instagram___username = 'siteMetadata.social.instagram.username',
   siteMetadata___language = 'siteMetadata.language',
-  port = 'port',
-  host = 'host',
   pathPrefix = 'pathPrefix',
   flags___FAST_REFRESH = 'flags.FAST_REFRESH',
   flags___PRESERVE_FILE_DOWNLOAD_CACHE = 'flags.PRESERVE_FILE_DOWNLOAD_CACHE',
@@ -3975,8 +4359,6 @@ enum SiteFieldsEnum {
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
   readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly flags: Maybe<SiteFlagsFilterInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
@@ -4013,15 +4395,15 @@ type SitePage = Node & {
   readonly internalComponentName: Scalars['String'];
   readonly componentChunkName: Scalars['String'];
   readonly matchPath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
   readonly isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
   readonly context: Maybe<SitePageContext>;
   readonly pluginCreator: Maybe<SitePlugin>;
   readonly pluginCreatorId: Maybe<Scalars['String']>;
   readonly componentPath: Maybe<Scalars['String']>;
-  readonly id: Scalars['ID'];
-  readonly parent: Maybe<Node>;
-  readonly children: ReadonlyArray<Node>;
-  readonly internal: Internal;
 };
 
 type SitePageConnection = {
@@ -4077,106 +4459,6 @@ enum SitePageFieldsEnum {
   internalComponentName = 'internalComponentName',
   componentChunkName = 'componentChunkName',
   matchPath = 'matchPath',
-  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
-  context___id = 'context.id',
-  context___slug = 'context.slug',
-  context____xparams___slug = 'context._xparams.slug',
-  pluginCreator___id = 'pluginCreator.id',
-  pluginCreator___parent___id = 'pluginCreator.parent.id',
-  pluginCreator___parent___parent___id = 'pluginCreator.parent.parent.id',
-  pluginCreator___parent___parent___children = 'pluginCreator.parent.parent.children',
-  pluginCreator___parent___children = 'pluginCreator.parent.children',
-  pluginCreator___parent___children___id = 'pluginCreator.parent.children.id',
-  pluginCreator___parent___children___children = 'pluginCreator.parent.children.children',
-  pluginCreator___parent___internal___content = 'pluginCreator.parent.internal.content',
-  pluginCreator___parent___internal___contentDigest = 'pluginCreator.parent.internal.contentDigest',
-  pluginCreator___parent___internal___description = 'pluginCreator.parent.internal.description',
-  pluginCreator___parent___internal___fieldOwners = 'pluginCreator.parent.internal.fieldOwners',
-  pluginCreator___parent___internal___ignoreType = 'pluginCreator.parent.internal.ignoreType',
-  pluginCreator___parent___internal___mediaType = 'pluginCreator.parent.internal.mediaType',
-  pluginCreator___parent___internal___owner = 'pluginCreator.parent.internal.owner',
-  pluginCreator___parent___internal___type = 'pluginCreator.parent.internal.type',
-  pluginCreator___children = 'pluginCreator.children',
-  pluginCreator___children___id = 'pluginCreator.children.id',
-  pluginCreator___children___parent___id = 'pluginCreator.children.parent.id',
-  pluginCreator___children___parent___children = 'pluginCreator.children.parent.children',
-  pluginCreator___children___children = 'pluginCreator.children.children',
-  pluginCreator___children___children___id = 'pluginCreator.children.children.id',
-  pluginCreator___children___children___children = 'pluginCreator.children.children.children',
-  pluginCreator___children___internal___content = 'pluginCreator.children.internal.content',
-  pluginCreator___children___internal___contentDigest = 'pluginCreator.children.internal.contentDigest',
-  pluginCreator___children___internal___description = 'pluginCreator.children.internal.description',
-  pluginCreator___children___internal___fieldOwners = 'pluginCreator.children.internal.fieldOwners',
-  pluginCreator___children___internal___ignoreType = 'pluginCreator.children.internal.ignoreType',
-  pluginCreator___children___internal___mediaType = 'pluginCreator.children.internal.mediaType',
-  pluginCreator___children___internal___owner = 'pluginCreator.children.internal.owner',
-  pluginCreator___children___internal___type = 'pluginCreator.children.internal.type',
-  pluginCreator___internal___content = 'pluginCreator.internal.content',
-  pluginCreator___internal___contentDigest = 'pluginCreator.internal.contentDigest',
-  pluginCreator___internal___description = 'pluginCreator.internal.description',
-  pluginCreator___internal___fieldOwners = 'pluginCreator.internal.fieldOwners',
-  pluginCreator___internal___ignoreType = 'pluginCreator.internal.ignoreType',
-  pluginCreator___internal___mediaType = 'pluginCreator.internal.mediaType',
-  pluginCreator___internal___owner = 'pluginCreator.internal.owner',
-  pluginCreator___internal___type = 'pluginCreator.internal.type',
-  pluginCreator___resolve = 'pluginCreator.resolve',
-  pluginCreator___name = 'pluginCreator.name',
-  pluginCreator___version = 'pluginCreator.version',
-  pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
-  pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
-  pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
-  pluginCreator___pluginOptions___outputPath = 'pluginCreator.pluginOptions.outputPath',
-  pluginCreator___pluginOptions___emitSchema___src___generated___gatsby_introspection_json = 'pluginCreator.pluginOptions.emitSchema.src___generated___gatsby_introspection_json',
-  pluginCreator___pluginOptions___emitSchema___src___generated___gatsby_schema_graphql = 'pluginCreator.pluginOptions.emitSchema.src___generated___gatsby_schema_graphql',
-  pluginCreator___pluginOptions___emitPluginDocuments___src___generated___gatsby_plugin_documents_graphql = 'pluginCreator.pluginOptions.emitPluginDocuments.src___generated___gatsby_plugin_documents_graphql',
-  pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
-  pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
-  pluginCreator___pluginOptions___short_name = 'pluginCreator.pluginOptions.short_name',
-  pluginCreator___pluginOptions___description = 'pluginCreator.pluginOptions.description',
-  pluginCreator___pluginOptions___homepage_url = 'pluginCreator.pluginOptions.homepage_url',
-  pluginCreator___pluginOptions___start_url = 'pluginCreator.pluginOptions.start_url',
-  pluginCreator___pluginOptions___background_color = 'pluginCreator.pluginOptions.background_color',
-  pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
-  pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
-  pluginCreator___pluginOptions___icon_options___purpose = 'pluginCreator.pluginOptions.icon_options.purpose',
-  pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
-  pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
-  pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
-  pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
-  pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
-  pluginCreator___pluginOptions___trackingId = 'pluginCreator.pluginOptions.trackingId',
-  pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
-  pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
-  pluginCreator___pluginOptions___mergeSecurityHeaders = 'pluginCreator.pluginOptions.mergeSecurityHeaders',
-  pluginCreator___pluginOptions___mergeLinkHeaders = 'pluginCreator.pluginOptions.mergeLinkHeaders',
-  pluginCreator___pluginOptions___mergeCachingHeaders = 'pluginCreator.pluginOptions.mergeCachingHeaders',
-  pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator.pluginOptions.postCssPlugins',
-  pluginCreator___pluginOptions___postCssPlugins___postcssPlugin = 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin',
-  pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
-  pluginCreator___pluginOptions___apiUrl = 'pluginCreator.pluginOptions.apiUrl',
-  pluginCreator___pluginOptions___contentApiKey = 'pluginCreator.pluginOptions.contentApiKey',
-  pluginCreator___pluginOptions___version = 'pluginCreator.pluginOptions.version',
-  pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
-  pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
-  pluginCreator___ssrAPIs = 'pluginCreator.ssrAPIs',
-  pluginCreator___pluginFilepath = 'pluginCreator.pluginFilepath',
-  pluginCreator___packageJson___name = 'pluginCreator.packageJson.name',
-  pluginCreator___packageJson___description = 'pluginCreator.packageJson.description',
-  pluginCreator___packageJson___version = 'pluginCreator.packageJson.version',
-  pluginCreator___packageJson___main = 'pluginCreator.packageJson.main',
-  pluginCreator___packageJson___license = 'pluginCreator.packageJson.license',
-  pluginCreator___packageJson___dependencies = 'pluginCreator.packageJson.dependencies',
-  pluginCreator___packageJson___dependencies___name = 'pluginCreator.packageJson.dependencies.name',
-  pluginCreator___packageJson___dependencies___version = 'pluginCreator.packageJson.dependencies.version',
-  pluginCreator___packageJson___devDependencies = 'pluginCreator.packageJson.devDependencies',
-  pluginCreator___packageJson___devDependencies___name = 'pluginCreator.packageJson.devDependencies.name',
-  pluginCreator___packageJson___devDependencies___version = 'pluginCreator.packageJson.devDependencies.version',
-  pluginCreator___packageJson___peerDependencies = 'pluginCreator.packageJson.peerDependencies',
-  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator.packageJson.peerDependencies.name',
-  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator.packageJson.peerDependencies.version',
-  pluginCreator___packageJson___keywords = 'pluginCreator.packageJson.keywords',
-  pluginCreatorId = 'pluginCreatorId',
-  componentPath = 'componentPath',
   id = 'id',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
@@ -4262,7 +4544,113 @@ enum SitePageFieldsEnum {
   internal___ignoreType = 'internal.ignoreType',
   internal___mediaType = 'internal.mediaType',
   internal___owner = 'internal.owner',
-  internal___type = 'internal.type'
+  internal___type = 'internal.type',
+  isCreatedByStatefulCreatePages = 'isCreatedByStatefulCreatePages',
+  context___id = 'context.id',
+  context___slug = 'context.slug',
+  context____xparams___slug = 'context._xparams.slug',
+  pluginCreator___id = 'pluginCreator.id',
+  pluginCreator___parent___id = 'pluginCreator.parent.id',
+  pluginCreator___parent___parent___id = 'pluginCreator.parent.parent.id',
+  pluginCreator___parent___parent___children = 'pluginCreator.parent.parent.children',
+  pluginCreator___parent___children = 'pluginCreator.parent.children',
+  pluginCreator___parent___children___id = 'pluginCreator.parent.children.id',
+  pluginCreator___parent___children___children = 'pluginCreator.parent.children.children',
+  pluginCreator___parent___internal___content = 'pluginCreator.parent.internal.content',
+  pluginCreator___parent___internal___contentDigest = 'pluginCreator.parent.internal.contentDigest',
+  pluginCreator___parent___internal___description = 'pluginCreator.parent.internal.description',
+  pluginCreator___parent___internal___fieldOwners = 'pluginCreator.parent.internal.fieldOwners',
+  pluginCreator___parent___internal___ignoreType = 'pluginCreator.parent.internal.ignoreType',
+  pluginCreator___parent___internal___mediaType = 'pluginCreator.parent.internal.mediaType',
+  pluginCreator___parent___internal___owner = 'pluginCreator.parent.internal.owner',
+  pluginCreator___parent___internal___type = 'pluginCreator.parent.internal.type',
+  pluginCreator___children = 'pluginCreator.children',
+  pluginCreator___children___id = 'pluginCreator.children.id',
+  pluginCreator___children___parent___id = 'pluginCreator.children.parent.id',
+  pluginCreator___children___parent___children = 'pluginCreator.children.parent.children',
+  pluginCreator___children___children = 'pluginCreator.children.children',
+  pluginCreator___children___children___id = 'pluginCreator.children.children.id',
+  pluginCreator___children___children___children = 'pluginCreator.children.children.children',
+  pluginCreator___children___internal___content = 'pluginCreator.children.internal.content',
+  pluginCreator___children___internal___contentDigest = 'pluginCreator.children.internal.contentDigest',
+  pluginCreator___children___internal___description = 'pluginCreator.children.internal.description',
+  pluginCreator___children___internal___fieldOwners = 'pluginCreator.children.internal.fieldOwners',
+  pluginCreator___children___internal___ignoreType = 'pluginCreator.children.internal.ignoreType',
+  pluginCreator___children___internal___mediaType = 'pluginCreator.children.internal.mediaType',
+  pluginCreator___children___internal___owner = 'pluginCreator.children.internal.owner',
+  pluginCreator___children___internal___type = 'pluginCreator.children.internal.type',
+  pluginCreator___internal___content = 'pluginCreator.internal.content',
+  pluginCreator___internal___contentDigest = 'pluginCreator.internal.contentDigest',
+  pluginCreator___internal___description = 'pluginCreator.internal.description',
+  pluginCreator___internal___fieldOwners = 'pluginCreator.internal.fieldOwners',
+  pluginCreator___internal___ignoreType = 'pluginCreator.internal.ignoreType',
+  pluginCreator___internal___mediaType = 'pluginCreator.internal.mediaType',
+  pluginCreator___internal___owner = 'pluginCreator.internal.owner',
+  pluginCreator___internal___type = 'pluginCreator.internal.type',
+  pluginCreator___resolve = 'pluginCreator.resolve',
+  pluginCreator___name = 'pluginCreator.name',
+  pluginCreator___version = 'pluginCreator.version',
+  pluginCreator___pluginOptions___plugins = 'pluginCreator.pluginOptions.plugins',
+  pluginCreator___pluginOptions___plugins___resolve = 'pluginCreator.pluginOptions.plugins.resolve',
+  pluginCreator___pluginOptions___plugins___id = 'pluginCreator.pluginOptions.plugins.id',
+  pluginCreator___pluginOptions___plugins___name = 'pluginCreator.pluginOptions.plugins.name',
+  pluginCreator___pluginOptions___plugins___version = 'pluginCreator.pluginOptions.plugins.version',
+  pluginCreator___pluginOptions___plugins___pluginFilepath = 'pluginCreator.pluginOptions.plugins.pluginFilepath',
+  pluginCreator___pluginOptions___allExtensions = 'pluginCreator.pluginOptions.allExtensions',
+  pluginCreator___pluginOptions___isTSX = 'pluginCreator.pluginOptions.isTSX',
+  pluginCreator___pluginOptions___jsxPragma = 'pluginCreator.pluginOptions.jsxPragma',
+  pluginCreator___pluginOptions___apiUrl = 'pluginCreator.pluginOptions.apiUrl',
+  pluginCreator___pluginOptions___contentApiKey = 'pluginCreator.pluginOptions.contentApiKey',
+  pluginCreator___pluginOptions___version = 'pluginCreator.pluginOptions.version',
+  pluginCreator___pluginOptions___outputPath = 'pluginCreator.pluginOptions.outputPath',
+  pluginCreator___pluginOptions___emitSchema___src___generated___gatsby_introspection_json = 'pluginCreator.pluginOptions.emitSchema.src___generated___gatsby_introspection_json',
+  pluginCreator___pluginOptions___emitSchema___src___generated___gatsby_schema_graphql = 'pluginCreator.pluginOptions.emitSchema.src___generated___gatsby_schema_graphql',
+  pluginCreator___pluginOptions___emitPluginDocuments___src___generated___gatsby_plugin_documents_graphql = 'pluginCreator.pluginOptions.emitPluginDocuments.src___generated___gatsby_plugin_documents_graphql',
+  pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
+  pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
+  pluginCreator___pluginOptions___short_name = 'pluginCreator.pluginOptions.short_name',
+  pluginCreator___pluginOptions___description = 'pluginCreator.pluginOptions.description',
+  pluginCreator___pluginOptions___homepage_url = 'pluginCreator.pluginOptions.homepage_url',
+  pluginCreator___pluginOptions___start_url = 'pluginCreator.pluginOptions.start_url',
+  pluginCreator___pluginOptions___background_color = 'pluginCreator.pluginOptions.background_color',
+  pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
+  pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
+  pluginCreator___pluginOptions___icon_options___purpose = 'pluginCreator.pluginOptions.icon_options.purpose',
+  pluginCreator___pluginOptions___cache_busting_mode = 'pluginCreator.pluginOptions.cache_busting_mode',
+  pluginCreator___pluginOptions___include_favicon = 'pluginCreator.pluginOptions.include_favicon',
+  pluginCreator___pluginOptions___legacy = 'pluginCreator.pluginOptions.legacy',
+  pluginCreator___pluginOptions___theme_color_in_head = 'pluginCreator.pluginOptions.theme_color_in_head',
+  pluginCreator___pluginOptions___cacheDigest = 'pluginCreator.pluginOptions.cacheDigest',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator.pluginOptions.trackingId',
+  pluginCreator___pluginOptions___anonymize = 'pluginCreator.pluginOptions.anonymize',
+  pluginCreator___pluginOptions___respectDNT = 'pluginCreator.pluginOptions.respectDNT',
+  pluginCreator___pluginOptions___mergeSecurityHeaders = 'pluginCreator.pluginOptions.mergeSecurityHeaders',
+  pluginCreator___pluginOptions___mergeLinkHeaders = 'pluginCreator.pluginOptions.mergeLinkHeaders',
+  pluginCreator___pluginOptions___mergeCachingHeaders = 'pluginCreator.pluginOptions.mergeCachingHeaders',
+  pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator.pluginOptions.postCssPlugins',
+  pluginCreator___pluginOptions___postCssPlugins___postcssPlugin = 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin',
+  pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
+  pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
+  pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
+  pluginCreator___ssrAPIs = 'pluginCreator.ssrAPIs',
+  pluginCreator___pluginFilepath = 'pluginCreator.pluginFilepath',
+  pluginCreator___packageJson___name = 'pluginCreator.packageJson.name',
+  pluginCreator___packageJson___description = 'pluginCreator.packageJson.description',
+  pluginCreator___packageJson___version = 'pluginCreator.packageJson.version',
+  pluginCreator___packageJson___main = 'pluginCreator.packageJson.main',
+  pluginCreator___packageJson___license = 'pluginCreator.packageJson.license',
+  pluginCreator___packageJson___dependencies = 'pluginCreator.packageJson.dependencies',
+  pluginCreator___packageJson___dependencies___name = 'pluginCreator.packageJson.dependencies.name',
+  pluginCreator___packageJson___dependencies___version = 'pluginCreator.packageJson.dependencies.version',
+  pluginCreator___packageJson___devDependencies = 'pluginCreator.packageJson.devDependencies',
+  pluginCreator___packageJson___devDependencies___name = 'pluginCreator.packageJson.devDependencies.name',
+  pluginCreator___packageJson___devDependencies___version = 'pluginCreator.packageJson.devDependencies.version',
+  pluginCreator___packageJson___peerDependencies = 'pluginCreator.packageJson.peerDependencies',
+  pluginCreator___packageJson___peerDependencies___name = 'pluginCreator.packageJson.peerDependencies.name',
+  pluginCreator___packageJson___peerDependencies___version = 'pluginCreator.packageJson.peerDependencies.version',
+  pluginCreator___packageJson___keywords = 'pluginCreator.packageJson.keywords',
+  pluginCreatorId = 'pluginCreatorId',
+  componentPath = 'componentPath'
 }
 
 type SitePageFilterInput = {
@@ -4271,15 +4659,15 @@ type SitePageFilterInput = {
   readonly internalComponentName: Maybe<StringQueryOperatorInput>;
   readonly componentChunkName: Maybe<StringQueryOperatorInput>;
   readonly matchPath: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
   readonly isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
   readonly context: Maybe<SitePageContextFilterInput>;
   readonly pluginCreator: Maybe<SitePluginFilterInput>;
   readonly pluginCreatorId: Maybe<StringQueryOperatorInput>;
   readonly componentPath: Maybe<StringQueryOperatorInput>;
-  readonly id: Maybe<StringQueryOperatorInput>;
-  readonly parent: Maybe<NodeFilterInput>;
-  readonly children: Maybe<NodeFilterListInput>;
-  readonly internal: Maybe<InternalFilterInput>;
 };
 
 type SitePageGroupConnection = {
@@ -4429,9 +4817,18 @@ enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___plugins = 'pluginOptions.plugins',
+  pluginOptions___plugins___resolve = 'pluginOptions.plugins.resolve',
+  pluginOptions___plugins___id = 'pluginOptions.plugins.id',
+  pluginOptions___plugins___name = 'pluginOptions.plugins.name',
+  pluginOptions___plugins___version = 'pluginOptions.plugins.version',
+  pluginOptions___plugins___pluginFilepath = 'pluginOptions.plugins.pluginFilepath',
   pluginOptions___allExtensions = 'pluginOptions.allExtensions',
   pluginOptions___isTSX = 'pluginOptions.isTSX',
   pluginOptions___jsxPragma = 'pluginOptions.jsxPragma',
+  pluginOptions___apiUrl = 'pluginOptions.apiUrl',
+  pluginOptions___contentApiKey = 'pluginOptions.contentApiKey',
+  pluginOptions___version = 'pluginOptions.version',
   pluginOptions___outputPath = 'pluginOptions.outputPath',
   pluginOptions___emitSchema___src___generated___gatsby_introspection_json = 'pluginOptions.emitSchema.src___generated___gatsby_introspection_json',
   pluginOptions___emitSchema___src___generated___gatsby_schema_graphql = 'pluginOptions.emitSchema.src___generated___gatsby_schema_graphql',
@@ -4460,9 +4857,6 @@ enum SitePluginFieldsEnum {
   pluginOptions___postCssPlugins = 'pluginOptions.postCssPlugins',
   pluginOptions___postCssPlugins___postcssPlugin = 'pluginOptions.postCssPlugins.postcssPlugin',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
-  pluginOptions___apiUrl = 'pluginOptions.apiUrl',
-  pluginOptions___contentApiKey = 'pluginOptions.contentApiKey',
-  pluginOptions___version = 'pluginOptions.version',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
   ssrAPIs = 'ssrAPIs',
@@ -4576,9 +4970,13 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 type SitePluginPluginOptions = {
+  readonly plugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPlugins>>>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
   readonly jsxPragma: Maybe<Scalars['String']>;
+  readonly apiUrl: Maybe<Scalars['String']>;
+  readonly contentApiKey: Maybe<Scalars['String']>;
+  readonly version: Maybe<Scalars['String']>;
   readonly outputPath: Maybe<Scalars['String']>;
   readonly emitSchema: Maybe<SitePluginPluginOptionsEmitSchema>;
   readonly emitPluginDocuments: Maybe<SitePluginPluginOptionsEmitPluginDocuments>;
@@ -4605,9 +5003,6 @@ type SitePluginPluginOptions = {
   readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
-  readonly apiUrl: Maybe<Scalars['String']>;
-  readonly contentApiKey: Maybe<Scalars['String']>;
-  readonly version: Maybe<Scalars['String']>;
 };
 
 type SitePluginPluginOptionsEmitPluginDocuments = {
@@ -4629,9 +5024,13 @@ type SitePluginPluginOptionsEmitSchemaFilterInput = {
 };
 
 type SitePluginPluginOptionsFilterInput = {
+  readonly plugins: Maybe<SitePluginPluginOptionsPluginsFilterListInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
   readonly jsxPragma: Maybe<StringQueryOperatorInput>;
+  readonly apiUrl: Maybe<StringQueryOperatorInput>;
+  readonly contentApiKey: Maybe<StringQueryOperatorInput>;
+  readonly version: Maybe<StringQueryOperatorInput>;
   readonly outputPath: Maybe<StringQueryOperatorInput>;
   readonly emitSchema: Maybe<SitePluginPluginOptionsEmitSchemaFilterInput>;
   readonly emitPluginDocuments: Maybe<SitePluginPluginOptionsEmitPluginDocumentsFilterInput>;
@@ -4658,9 +5057,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
-  readonly apiUrl: Maybe<StringQueryOperatorInput>;
-  readonly contentApiKey: Maybe<StringQueryOperatorInput>;
-  readonly version: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePluginPluginOptionsIcon_options = {
@@ -4669,6 +5065,26 @@ type SitePluginPluginOptionsIcon_options = {
 
 type SitePluginPluginOptionsIcon_optionsFilterInput = {
   readonly purpose: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsPlugins = {
+  readonly resolve: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+  readonly name: Maybe<Scalars['String']>;
+  readonly version: Maybe<Scalars['String']>;
+  readonly pluginFilepath: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsPluginsFilterInput = {
+  readonly resolve: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly version: Maybe<StringQueryOperatorInput>;
+  readonly pluginFilepath: Maybe<StringQueryOperatorInput>;
+};
+
+type SitePluginPluginOptionsPluginsFilterListInput = {
+  readonly elemMatch: Maybe<SitePluginPluginOptionsPluginsFilterInput>;
 };
 
 type SitePluginPluginOptionsPostCssPlugins = {
@@ -4830,10 +5246,38 @@ type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
+
+type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+
+type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+
+type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
+
+type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
+
+type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
+      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'language'>
+      & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
+    )> }> };
 
 type HomepageQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4845,39 +5289,9 @@ type GhostPageQueryVariables = Exact<{
 }>;
 
 
-type GhostPageQuery = { readonly ghostPage: Maybe<Pick<GhostPage, 'id' | 'html' | 'title'>> };
-
-type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
-
-type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
-      Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'language'>
-      & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
-    )> }> };
-
-type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
-
-type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
-
-type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
-
-type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+type GhostPageQuery = { readonly ghostPage: Maybe<(
+    Pick<GhostPage, 'id' | 'html' | 'title'>
+    & { readonly childHtmlRehype: Maybe<Pick<HtmlRehype, 'html' | 'htmlAst'>> }
+  )> };
 
 }

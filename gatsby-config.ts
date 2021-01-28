@@ -73,6 +73,23 @@ const config: GatsbyConfig = {
       resolve: `gatsby-source-ghost`,
       options: ghostOptions,
     },
+    {
+      resolve: `gatsby-transformer-rehype`,
+      options: {
+        plugins: [
+          'gatsby-rehype-ghost-links',
+          {
+            resolve: `gatsby-rehype-inline-images`,
+            // options: {
+            //   withWebp: true,
+            //   useImageCache: true,
+            // },
+          },
+        ],
+        filter: (node) =>
+          ['GhostPost', 'GhostPage'].includes(node.internal.type),
+      },
+    },
   ],
 };
 

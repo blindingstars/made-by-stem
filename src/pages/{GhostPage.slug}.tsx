@@ -1,8 +1,11 @@
 /* eslint-disable react/no-danger */
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
+import RehypeReact from 'rehype-react';
+
 import { Layout } from '../components/Layout';
 import { SlimContainer } from '../components/Container';
+import { RenderContent } from '../components/Helpers';
 
 const HomePage: React.FC<PageProps<GatsbyTypes.GhostPageQuery>> = ({
   data,
@@ -12,9 +15,16 @@ const HomePage: React.FC<PageProps<GatsbyTypes.GhostPageQuery>> = ({
       <h1 className="mb-4 text-5xl font-bold text-center">
         {data.ghostPage.title}
       </h1>
-      <div
+      {/* <div
         className="mx-auto max-w-prose ghost-content"
-        dangerouslySetInnerHTML={{ __html: data.ghostPage.html }}
+        dangerouslySetInnerHTML={{
+          __html: data.ghostPage.childHtmlRehype.html,
+        }}
+      /> */}
+
+      <RenderContent
+        className="mx-auto max-w-prose ghost-content"
+        htmlAst={data.ghostPage.childHtmlRehype.htmlAst}
       />
     </SlimContainer>
   </Layout>
@@ -26,6 +36,10 @@ export const query = graphql`
       id
       html
       title
+      childHtmlRehype {
+        html
+        htmlAst
+      }
     }
   }
 `;
