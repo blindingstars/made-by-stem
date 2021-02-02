@@ -54,6 +54,7 @@ export const RenderContent: React.FC<RenderContentProps> = ({
     {htmlAst ? (
       <div className={className}>{renderAst(htmlAst)}</div>
     ) : (
+      // eslint-disable-next-line react/no-danger
       <div className={className} dangerouslySetInnerHTML={{ __html: html }} />
     )}
   </>
