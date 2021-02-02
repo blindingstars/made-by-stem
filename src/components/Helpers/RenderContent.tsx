@@ -20,6 +20,17 @@ export const ImgSharpInline: React.FC<any> = ({ className, fluidImg, alt }) => {
   return <Img className={className} fluid={fluidImgData} alt={alt} />;
 };
 
+export const GhostH2 = ({ children }) => {
+  return (
+    <h2 className="mt-6 mb-2 -ml-5 -mr-10 text-5xl tracking-tighter leading-extra-tight font-caps">
+      <span className="relative inline-block py-2 pl-5 pr-10">
+        {children}
+        <span className="absolute inset-0 -z-1 bg-mint washi-mask washi-mask-2" />
+      </span>
+    </h2>
+  );
+};
+
 export interface RenderContentProps {
   html: string;
   htmlAst: any;
@@ -31,7 +42,7 @@ export interface RenderContentProps {
 const renderAst = new RehypeReact({
   Fragment: React.Fragment,
   createElement: React.createElement,
-  components: { 'img-sharp-inline': ImgSharpInline },
+  components: { 'img-sharp-inline': ImgSharpInline, h2: GhostH2 },
 }).Compiler;
 
 export const RenderContent: React.FC<RenderContentProps> = ({
