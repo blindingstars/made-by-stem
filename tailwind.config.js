@@ -30,6 +30,21 @@ const theme = {
       900: '#08684B',
       DEFAULT: '#DBF2EC',
     },
+    pistachio: {
+      DEFAULT: '#e5f2db',
+    },
+    butter: {
+      DEFAULT: '#f7eec6',
+    },
+    peach: {
+      DEFAULT: '#fddfda',
+    },
+    grape: {
+      DEFAULT: '#e8cbe3',
+    },
+    blueberry: {
+      DEFAULT: '#cddef7',
+    },
     success: {
       ...colors.green,
       DEFAULT: colors.green[500],
@@ -74,6 +89,12 @@ const theme = {
     },
     borderColor: {
       DEFAULT: '#eeeef0',
+    },
+    zIndex: {
+      '-1': '-1',
+    },
+    lineHeight: {
+      'extra-tight': '0.7',
     },
   },
   container: {
