@@ -33,11 +33,11 @@ $accent-colors: 'mint', 'pistachio', 'butter', 'peach', 'grape', 'blueberry';
   $selector: #{$length + 'n + ' $index};
   .ghost-content {
     h2:nth-of-type(#{$selector}) .washi-mask {
-      @apply #{'bg-' + $color};
+      @apply #{'bg-' + $color + '-50'};
     }
 
     li:nth-of-type(#{$selector})::marker {
-      @apply #{'text-' + $color};
+      @apply #{'text-' + $color + '-300'};
     }
   }
 }
