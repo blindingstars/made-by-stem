@@ -31,7 +31,10 @@ export const Nav: React.FC = () => {
 
   return (
     <header className="z-10 w-full py-4 bg-primary">
-      <SlimContainer className="flex flex-wrap items-center justify-between md:flex-row">
+      <SlimContainer
+        className="flex flex-wrap items-center justify-between md:flex-row"
+        verticalPadding={false}
+      >
         <Link to="/" className="relative flex items-center mr-6">
           <Logo className="pt-1 w-36" />
         </Link>

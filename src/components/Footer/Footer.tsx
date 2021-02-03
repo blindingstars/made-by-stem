@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = () => {
   } = data;
   return (
     <footer className="text-gray-700 body-font">
-      <SlimContainer className="flex flex-col flex-wrap py-12 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+      <SlimContainer className="flex flex-col flex-wrap mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
         <div className="flex-shrink-0 mx-auto text-center md:w-72 md:mx-0 md:text-left">
           <Link
             className="inline-flex items-center justify-center font-medium text-left text-gray-900 md:justify-start"
@@ -52,7 +52,10 @@ const Footer: React.FC<FooterProps> = () => {
         </div>
       </SlimContainer>
       <div className="bg-mint">
-        <SlimContainer className="flex flex-col flex-wrap py-4 mx-auto sm:flex-row">
+        <SlimContainer
+          className="flex flex-col flex-wrap py-4 mx-auto sm:flex-row"
+          verticalPadding={false}
+        >
           <p className="text-sm text-center text-gray-500 sm:text-left">
             © {buildYear} {title}
           </p>

@@ -11,7 +11,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.GhostPageQuery>> = ({
   data,
 }) => (
   <Layout>
-    <SlimContainer className="py-12">
+    <SlimContainer>
       <h1 className="mb-4 text-5xl font-bold text-center">
         {data.ghostPage.title}
       </h1>
