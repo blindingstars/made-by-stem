@@ -1,30 +1,4 @@
 .ghost-content {
-  h2 {
-    &:nth-of-type(6n + 1) .washi-mask {
-      @apply bg-mint;
-    }
-
-    &:nth-of-type(6n + 2) .washi-mask {
-      @apply bg-pistachio;
-    }
-
-    &:nth-of-type(6n + 3) .washi-mask {
-      @apply bg-butter;
-    }
-
-    &:nth-of-type(6n + 4) .washi-mask {
-      @apply bg-peach;
-    }
-
-    &:nth-of-type(6n + 5) .washi-mask {
-      @apply bg-grape;
-    }
-
-    &:nth-of-type(6n + 6) .washi-mask {
-      @apply bg-blueberry;
-    }
-  }
-
   h3 {
     @apply font-caps;
   }
@@ -48,9 +22,22 @@
 
   li {
     @apply mb-2;
+  }
+}
 
-    &::marker {
-      @apply text-mint-500;
+$accent-colors: 'mint', 'pistachio', 'butter', 'peach', 'grape', 'blueberry';
+
+@each $color in $accent-colors {
+  $length: length($accent-colors);
+  $index: index($accent-colors, $color);
+  $selector: #{$length + 'n + ' $index};
+  .ghost-content {
+    h2:nth-of-type(#{$selector}) .washi-mask {
+      @apply #{'bg-' + $color};
+    }
+
+    li:nth-of-type(#{$selector})::marker {
+      @apply #{'text-' + $color};
     }
   }
 }
