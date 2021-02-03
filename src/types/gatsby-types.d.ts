@@ -5274,6 +5274,21 @@ type GhostPageQuery = { readonly ghostPage: Maybe<(
     & { readonly childHtmlRehype: Maybe<Pick<HtmlRehype, 'html' | 'htmlAst'>> }
   )> };
 
+type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
+
+type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+
+type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
+
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5282,25 +5297,10 @@ type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
     )> }> };
 
-type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
-
 type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
-
-type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
-
-type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
 
 type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

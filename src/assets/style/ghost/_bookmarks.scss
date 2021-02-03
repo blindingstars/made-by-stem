@@ -1,0 +1,50 @@
+.kg-bookmark {
+  &-container {
+    @apply grid sm:gap-4 rounded mb-2 overflow-hidden border border-gray-200;
+    grid-template-areas:
+      'image'
+      'content';
+  }
+
+  &-content {
+    @apply p-4 text-sm flex flex-col content-center;
+    grid-area: content;
+  }
+
+  &-title {
+    @apply text-base leading-tight font-bold mb-1;
+  }
+
+  &-author {
+    display: none;
+  }
+
+  &-metadata {
+    @apply flex items-center mt-3 text-xs text-gray-700 leading-tight;
+  }
+
+  &-thumbnail {
+    grid-area: image;
+    @apply w-full h-32 sm:h-full;
+
+    .gatsby-image-wrapper {
+      @apply h-full;
+    }
+  }
+
+  &-card figcaption {
+    @apply text-sm italic;
+  }
+}
+
+.kg-bookmark-icon,
+img.kg-bookmark-icon {
+  @apply w-4 inline-block mr-1;
+}
+
+@media screen and (min-width: map-get($maxWidth, 'screen-sm')) {
+  .kg-bookmark-container {
+    grid-template-areas: 'content image';
+    grid-template-columns: 1fr 200px;
+  }
+}
