@@ -18,7 +18,8 @@
     "react-helmet": "^6.1.0",
     "react-hotkeys-hook": "^3.0.3",
     "regenerator-runtime": "^0.13.7",
-    "rehype-react": "^6.2.0"
+    "rehype-react": "^6.2.0",
+    "seedrandom": "^3.0.5"
   },
   "devDependencies": {
     "@northxsouth/gatsby-plugin-google-fonts": "^0.0.9",

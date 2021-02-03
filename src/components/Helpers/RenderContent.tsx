@@ -1,6 +1,7 @@
 import React from 'react';
 import RehypeReact from 'rehype-react';
 import Img from 'gatsby-image';
+import SeedRandom from 'seedrandom';
 import { WashiHeader } from '../WashiHeader';
 
 export const ImgSharpInline: React.FC<any> = ({ className, fluidImg, alt }) => {
@@ -8,9 +9,19 @@ export const ImgSharpInline: React.FC<any> = ({ className, fluidImg, alt }) => {
   return <Img className={className} fluid={fluidImgData} alt={alt} />;
 };
 
-export const GhostH2: React.FC = ({ children, ...rest }) => {
-  console.log({ rest });
-  return <WashiHeader>{children}</WashiHeader>;
+export const GhostH2: React.FC = ({ children, id, ...rest }) => {
+  const getRandom = (input) => {
+    const random = new SeedRandom(input);
+    return Math.floor(random() * 5) + 1;
+  };
+
+  const washiMask = React.useMemo(() => getRandom(id), [id]);
+
+  return (
+    <WashiHeader id={id} washiMask={washiMask} autoColor={false} {...rest}>
+      {children}
+    </WashiHeader>
+  );
 };
 
 export interface RenderContentProps {

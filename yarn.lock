@@ -2847,6 +2847,7 @@ __metadata:
     regenerator-runtime: ^0.13.7
     rehype-react: ^6.2.0
     sass: ^1.32.5
+    seedrandom: ^3.0.5
     tailwindcss: ^2.0.2
     tailwindcss-export-config: ^2.3.0
     ts-jest: ^26.4.4
@@ -19382,6 +19383,13 @@ fsevents@^1.2.7:
     ajv: ^6.12.5
     ajv-keywords: ^3.5.2
   checksum: a084f593f222560c412a4d8f40c92386c01c1c709f27c0672c2f02927a4d4d475f57f8b8e91198d0defb452add160476a03f07a05b26200a64b5124fa874e158
+  languageName: node
+  linkType: hard
+
+"seedrandom@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "seedrandom@npm:3.0.5"
+  checksum: 8ca859bd79cc6a4367783f19d802ef4651f957da388f162f45c4e32c4d4df8cb55649b25b9d66cf73f905d920640b8da9ae04418feb40b41c9c7c767a1c49691
   languageName: node
   linkType: hard
 

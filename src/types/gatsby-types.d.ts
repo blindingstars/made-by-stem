@@ -5284,11 +5284,6 @@ type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
 
-type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
-
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5297,14 +5292,19 @@ type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
     )> }> };
 
+type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
+
 type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
 
-type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
+type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
 
 }

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 
 export interface WashiHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   alignWithContainer?: boolean;
+  autoColor?: boolean;
   tapeColor?: string;
   washiMask?: 1 | 2 | 3 | 4 | 5;
 }
@@ -11,7 +12,8 @@ const WashiHeader: React.FC<WashiHeaderProps> = ({
   children,
   className,
   alignWithContainer = true,
-  tapeColor = 'bg-mint', // Don't interpolate! Will disrupt Tailwind purge
+  autoColor = true,
+  tapeColor, // Don't interpolate! Will disrupt Tailwind purge
   washiMask = 2, // Gets interpolated because manual SASS
   ...rest
 }) => {
@@ -28,6 +30,7 @@ const WashiHeader: React.FC<WashiHeaderProps> = ({
   const tapeClasses = classNames(
     'absolute inset-0 -z-1 washi-mask',
     `washi-mask-${washiMask}`,
+    { 'bg-mint': autoColor },
     tapeColor,
     className,
   );
