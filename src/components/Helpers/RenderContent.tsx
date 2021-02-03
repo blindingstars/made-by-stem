@@ -1,38 +1,20 @@
 import React from 'react';
 import RehypeReact from 'rehype-react';
 import Img from 'gatsby-image';
-import { GatsbyImage, IGatsbyImageData } from 'gatsby-plugin-image';
+import { WashiHeader } from '../WashiHeader';
 
 export const ImgSharpInline: React.FC<any> = ({ className, fluidImg, alt }) => {
   const fluidImgData = JSON.parse(fluidImg);
-  const image: IGatsbyImageData = {
-    layout: 'fullWidth',
-    images: {
-      fallback: { src: fluidImgData.src },
-      sources: [
-        {
-          srcSet: fluidImgData.srcSet,
-          type: fluidImgData.srcSetType,
-        },
-      ],
-    },
-  };
   return <Img className={className} fluid={fluidImgData} alt={alt} />;
 };
 
-export const GhostH2 = ({ children }) => {
-  return (
-    <h2 className="mt-6 mb-2 -ml-5 -mr-10 text-5xl tracking-tighter leading-extra-tight font-caps">
-      <span className="relative inline-block py-2 pl-5 pr-10">
-        {children}
-        <span className="absolute inset-0 -z-1 bg-mint washi-mask washi-mask-2" />
-      </span>
-    </h2>
-  );
+export const GhostH2: React.FC = ({ children, ...rest }) => {
+  console.log({ rest });
+  return <WashiHeader>{children}</WashiHeader>;
 };
 
 export interface RenderContentProps {
-  html: string;
+  html?: string;
   htmlAst: any;
   className?: string;
 }

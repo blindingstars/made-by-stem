@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import RehypeReact from 'rehype-react';
 
 import { Layout } from '../components/Layout';
 import { SlimContainer } from '../components/Container';
