@@ -18,7 +18,7 @@ export const GhostH2: React.FC = ({ children, id, ...rest }) => {
   const washiMask = React.useMemo(() => getRandom(id), [id]);
 
   return (
-    <WashiHeader id={id} washiMask={washiMask} autoColor={false} {...rest}>
+    <WashiHeader id={id} washiMask={washiMask} hasAssignedColor {...rest}>
       {children}
     </WashiHeader>
   );
