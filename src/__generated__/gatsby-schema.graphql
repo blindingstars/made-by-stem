@@ -4226,6 +4226,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___mergeCachingHeaders
   pluginCreator___pluginOptions___postCssPlugins
   pluginCreator___pluginOptions___postCssPlugins___postcssPlugin
+  pluginCreator___pluginOptions___component
   pluginCreator___pluginOptions___pathCheck
   pluginCreator___nodeAPIs
   pluginCreator___browserAPIs
@@ -4441,6 +4442,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___mergeCachingHeaders
   pluginOptions___postCssPlugins
   pluginOptions___postCssPlugins___postcssPlugin
+  pluginOptions___component
   pluginOptions___pathCheck
   nodeAPIs
   browserAPIs
@@ -4587,6 +4589,7 @@ type SitePluginPluginOptions {
   mergeLinkHeaders: Boolean
   mergeCachingHeaders: Boolean
   postCssPlugins: [SitePluginPluginOptionsPostCssPlugins]
+  component: String
   pathCheck: Boolean
 }
 
@@ -4641,6 +4644,7 @@ input SitePluginPluginOptionsFilterInput {
   mergeLinkHeaders: BooleanQueryOperatorInput
   mergeCachingHeaders: BooleanQueryOperatorInput
   postCssPlugins: SitePluginPluginOptionsPostCssPluginsFilterListInput
+  component: StringQueryOperatorInput
   pathCheck: BooleanQueryOperatorInput
 }
 

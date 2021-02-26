@@ -17055,6 +17055,16 @@
             "defaultValue": null
           },
           {
+            "name": "component",
+            "description": "",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "StringQueryOperatorInput",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
             "name": "pathCheck",
             "description": "",
             "type": {
@@ -18412,6 +18422,18 @@
                 "name": "SitePluginPluginOptionsPostCssPlugins",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "component",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -20093,6 +20115,12 @@
           },
           {
             "name": "pluginCreator___pluginOptions___postCssPlugins___postcssPlugin",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginCreator___pluginOptions___component",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null
@@ -38766,6 +38794,12 @@
           },
           {
             "name": "pluginOptions___postCssPlugins___postcssPlugin",
+            "description": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pluginOptions___component",
             "description": null,
             "isDeprecated": false,
             "deprecationReason": null

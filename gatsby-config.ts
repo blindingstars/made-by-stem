@@ -90,6 +90,12 @@ const config: GatsbyConfig = {
           ['GhostPost', 'GhostPage'].includes(node.internal.type),
       },
     },
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+        component: require.resolve(`./src/components/Layout/Layout`),
+      },
+    },
   ],
 };
 

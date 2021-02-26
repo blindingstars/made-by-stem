@@ -4637,6 +4637,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___mergeCachingHeaders = 'pluginCreator.pluginOptions.mergeCachingHeaders',
   pluginCreator___pluginOptions___postCssPlugins = 'pluginCreator.pluginOptions.postCssPlugins',
   pluginCreator___pluginOptions___postCssPlugins___postcssPlugin = 'pluginCreator.pluginOptions.postCssPlugins.postcssPlugin',
+  pluginCreator___pluginOptions___component = 'pluginCreator.pluginOptions.component',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -4864,6 +4865,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___mergeCachingHeaders = 'pluginOptions.mergeCachingHeaders',
   pluginOptions___postCssPlugins = 'pluginOptions.postCssPlugins',
   pluginOptions___postCssPlugins___postcssPlugin = 'pluginOptions.postCssPlugins.postcssPlugin',
+  pluginOptions___component = 'pluginOptions.component',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -5010,6 +5012,7 @@ type SitePluginPluginOptions = {
   readonly mergeLinkHeaders: Maybe<Scalars['Boolean']>;
   readonly mergeCachingHeaders: Maybe<Scalars['Boolean']>;
   readonly postCssPlugins: Maybe<ReadonlyArray<Maybe<SitePluginPluginOptionsPostCssPlugins>>>;
+  readonly component: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
@@ -5064,6 +5067,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly mergeLinkHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly mergeCachingHeaders: Maybe<BooleanQueryOperatorInput>;
   readonly postCssPlugins: Maybe<SitePluginPluginOptionsPostCssPluginsFilterListInput>;
+  readonly component: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -5274,15 +5278,25 @@ type GhostPageQuery = { readonly ghostPage: Maybe<(
     & { readonly childHtmlRehype: Maybe<Pick<HtmlRehype, 'html' | 'htmlAst'>> }
   )> };
 
-type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
-
 type NavDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type NavDataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'titleShort'>> }> };
+
+type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
+
+type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
+
+type FooterDataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterDataQuery = { readonly siteBuildMetadata: Maybe<{ buildYear: SiteBuildMetadata['buildTime'] }> };
 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -5292,19 +5306,9 @@ type SiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<(
       & { readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>> }> }
     )> }> };
 
-type SocialImageQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SocialImageQueryQuery = { readonly socialImage: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<Pick<ImageSharpFluid, 'src'>> }> }> };
-
 type SocialQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SocialQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<{ readonly social: Maybe<{ readonly twitter: Maybe<Pick<SiteSiteMetadataSocialTwitter, 'username'>>, readonly facebook: Maybe<Pick<SiteSiteMetadataSocialFacebook, 'username'>>, readonly instagram: Maybe<Pick<SiteSiteMetadataSocialInstagram, 'username'>> }> }> }> };
-
-type GhostNavItemsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type GhostNavItemsQuery = { readonly ghostSettings: Maybe<{ readonly navigation: Maybe<ReadonlyArray<Maybe<Pick<GhostNavigation, 'label' | 'url'>>>> }> };
 
 }
