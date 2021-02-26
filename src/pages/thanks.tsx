@@ -1,12 +1,11 @@
 import { PageProps } from 'gatsby';
 import * as React from 'react';
 import { Container, SlimContainer } from '../components/Container';
-import { Layout } from '../components/Layout';
 import { Link } from '../components/Link';
 
 const ThanksPage: React.FC<PageProps> = () => {
   return (
-    <Layout title="Thanks!">
+    <>
       <header>
         <SlimContainer className="py-12">
           <h1 className="text-4xl font-semibold leading-8 text-center text-gray-900 md:text-6xl">
@@ -118,7 +117,7 @@ const ThanksPage: React.FC<PageProps> = () => {
           </div>
         </Container>
       </section>
-    </Layout>
+    </>
   );
 };
 

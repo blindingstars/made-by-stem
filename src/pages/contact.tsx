@@ -2,11 +2,10 @@ import { PageProps } from 'gatsby';
 import * as React from 'react';
 import { ContactForm } from '../components/Contact';
 import { SlimContainer } from '../components/Container';
-import { Layout } from '../components/Layout';
 
 const ContactPage: React.FC<PageProps> = () => {
   return (
-    <Layout title="Contact Us">
+    <>
       <header className="my-12 mb-16">
         <div className="container mx-auto">
           <h1 className="font-semibold text-center text-gray-900 md:text-6xl sm:text-4xl">
@@ -54,7 +53,7 @@ const ContactPage: React.FC<PageProps> = () => {
           />
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 
