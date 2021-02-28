@@ -1,13 +1,15 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
+import Img from 'gatsby-image';
 import { SlimContainer } from '../components/Container';
+import { Link } from '../components/Link';
 
 const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
   <SlimContainer>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 684.8 148.81"
-      className="mx-auto fill-current xl:max-w-4xl"
+      className="mx-auto fill-current xl:max-w-3xl"
     >
       <title>Design and Tech and Happy Things</title>
       <path
@@ -63,6 +65,37 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
         d="M673.08,92.12c-1-2.19-4.25-.29-3.24,1.89a3.18,3.18,0,0,1-.66,3.23,4.65,4.65,0,0,1-4.08,1.42c-2.69-.25-4.85-2-6.71-3.86a5.65,5.65,0,0,0,1.47-.64,4.88,4.88,0,0,0,2.34-3.87,3.75,3.75,0,0,0-2.47-3.68,4.42,4.42,0,0,0-4.39.84,5.45,5.45,0,0,0-1.52,2.11c-1.24-1.49-2.48-3-3.69-4.52a12.48,12.48,0,0,0,1.72-.15c2.06-.31,4.13-1.69,4.19-4s-1.9-3.52-3.91-3.74a10.18,10.18,0,0,0-5.43,1.19,9.83,9.83,0,0,0-1.3.76c-1.32-1.64-2.65-3.28-4-4.88-.43-.5-.86-1-1.3-1.49l.77,0c1.73.06,3.74,0,5-1.38a3.36,3.36,0,0,0,.81-3.1,3.93,3.93,0,0,0-1.81-2.25,6.42,6.42,0,0,0-5.2-.39,11.32,11.32,0,0,0-3.89,2.42c-8.15-8.19-18-15-29.72-16.11a29.78,29.78,0,0,0-21.41,5.91,1.9,1.9,0,0,0,0,2.66,1.92,1.92,0,0,0,2.65,0c5.37-4.24,12.48-5.5,19.15-4.78,7.13.78,13.75,4.18,19.4,8.46a67.78,67.78,0,0,1,6.91,6.09,8.45,8.45,0,0,0-2.26,8c.59,2.19,2.45,4.08,4.86,3.61s3.2-2.83,3.48-5c1.13,1.33,2.24,2.68,3.34,4,.2.25.39.5.59.74a11.8,11.8,0,0,0-2.15,5.79A8.69,8.69,0,0,0,641.72,93a4.25,4.25,0,0,0,5.9,1.46,5,5,0,0,0,2-4.1l.26.31,2,2.49a10.64,10.64,0,0,0-2.69,4.92c-.66,2.94-.08,7.47,3.78,7.61A4,4,0,0,0,656.7,103a10.33,10.33,0,0,0,.39-4.26q.45.41.93.78c3.28,2.56,7.75,4,11.69,2A7.2,7.2,0,0,0,673.08,92.12Z"
       />
     </svg>
+    <div className="grid items-start mx-auto mt-6 md:gap-6 md:grid-cols-8 xl:max-w-3xl">
+      <div className="relative z-10 -mb-8 avatar md:mb-0">
+        <Img
+          fluid={data.avatarImage.childImageSharp.fluid}
+          alt="Stephy Miehle"
+          className="object-cover object-center w-24 h-full mx-auto border-8 border-white rounded-full md:border-0 md:w-full"
+        />
+      </div>
+      <div className="relative flex flex-col md:col-span-7">
+        <div className="absolute hidden w-12 h-12 transform rotate-45 rounded arrow bg-primary-50 md:mt-4 md:block" />
+        <div className="px-4 pt-10 pb-4 rounded md:pt-4 quote-bubble bg-primary-50 washi-mask washi-mask-2">
+          <p className="mb-1">
+            <span className="text-2xl leading-none lowercase font-caps">
+              Hi! I'm Stephy.
+            </span>{' '}
+            Made by Stem is my space to share my creative journey as a maker. I
+            combine my{' '}
+            <Link to="https://www.northxsouth.co">professional skills</Link>{' '}
+            with my artistic hobbies and learn a lot along the way.
+          </p>
+          <p className="m-0 text-right">
+            <Link
+              to="/about"
+              className="font-accent text-mint-500 hover:text-mint-700"
+            >
+              Learn more&hellip;
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   </SlimContainer>
 );
 
@@ -78,6 +111,13 @@ export const query = graphql`
     }
     siteBuildMetadata {
       buildTime
+    }
+    avatarImage: file(relativePath: { eq: "clay-selfie.jpg" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
     }
   }
 `;
