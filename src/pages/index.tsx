@@ -3,13 +3,14 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { SlimContainer } from '../components/Container';
 import { Link } from '../components/Link';
+import { WashiHeader } from '../components/WashiHeader';
 
 const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
   <SlimContainer>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 684.8 148.81"
-      className="mx-auto fill-current xl:max-w-3xl"
+      className="mx-auto fill-current lg:max-w-2xl xl:max-w-3xl"
     >
       <title>Design and Tech and Happy Things</title>
       <path
@@ -81,9 +82,8 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
               Hi! I'm Stephy.
             </span>{' '}
             Made by Stem is my space to share my creative journey as a maker. I
-            combine my{' '}
-            <Link to="https://www.northxsouth.co">professional skills</Link>{' '}
-            with my artistic hobbies and learn a lot along the way.
+            combine my professional skills with my artistic hobbies and learn a
+            lot along the way.
           </p>
           <p className="m-0 text-right">
             <Link
@@ -95,6 +95,46 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
           </p>
         </div>
       </div>
+    </div>
+    <div className="grid gap-6 mt-12 md:grid-cols-2">
+      <Link to="/hand-built-ceramics">
+        <Img
+          fluid={data.handBuiltImage.childImageSharp.fluid}
+          alt="Stephy Miehle"
+          className="object-cover object-center w-full h-72"
+        />
+        <div className="px-3 -mt-4">
+          <WashiHeader
+            alignWithContainer={false}
+            washiMask={3}
+            tapeColor="bg-butter-200"
+            textSize="text-2xl"
+            margin="mt-0"
+            className="relative z-10 mx-auto text-center text-butter-800"
+          >
+            Hand-Built Ceramics
+          </WashiHeader>
+        </div>
+      </Link>
+      <Link to="/3d-printed-ceramics">
+        <Img
+          fluid={data.printedImage.childImageSharp.fluid}
+          alt="Stephy Miehle"
+          className="object-cover object-center w-full h-72"
+        />
+        <div className="px-3 -mt-4">
+          <WashiHeader
+            alignWithContainer={false}
+            washiMask={4}
+            tapeColor="bg-blueberry-200"
+            textSize="text-2xl"
+            margin="mt-0"
+            className="relative z-10 mx-auto text-center text-blueberry-800"
+          >
+            3D-Printed Ceramics
+          </WashiHeader>
+        </div>
+      </Link>
     </div>
   </SlimContainer>
 );
@@ -113,6 +153,20 @@ export const query = graphql`
       buildTime
     }
     avatarImage: file(relativePath: { eq: "clay-selfie.jpg" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    handBuiltImage: file(relativePath: { eq: "hand-built.jpg" }) {
+      childImageSharp {
+        fluid(quality: 70) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+    printedImage: file(relativePath: { eq: "3d-printed.jpg" }) {
       childImageSharp {
         fluid(quality: 70) {
           ...GatsbyImageSharpFluid_withWebp
