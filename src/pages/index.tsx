@@ -1,6 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage as Img, StaticImage } from 'gatsby-plugin-image';
 import { SlimContainer } from '../components/Container';
 import { Link } from '../components/Link';
 import { WashiHeader } from '../components/WashiHeader';
@@ -68,8 +68,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
     </svg>
     <div className="grid items-start mx-auto mt-6 md:gap-6 md:grid-cols-8 xl:max-w-3xl">
       <div className="relative z-10 -mb-8 avatar md:mb-0">
-        <Img
-          fluid={data.avatarImage.childImageSharp.fluid}
+        <StaticImage
+          src="../assets/images/clay-selfie.jpg"
+          height={85}
+          width={85}
+          layout="fixed"
           alt="Stephy Miehle"
           className="object-cover object-center w-24 h-full mx-auto border-8 border-white rounded-full md:border-0 md:w-full"
         />
@@ -98,10 +101,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
     </div>
     <div className="grid gap-6 mt-12 md:grid-cols-2">
       <Link to="/hand-built-ceramics">
-        <Img
-          fluid={data.handBuiltImage.childImageSharp.fluid}
+        <StaticImage
+          src="../assets/images/hand-built.jpg"
           alt="Stephy Miehle"
           className="object-cover object-center w-full h-72"
+          width={800}
         />
         <div className="px-3 -mt-4">
           <WashiHeader
@@ -117,10 +121,11 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
         </div>
       </Link>
       <Link to="/3d-printed-ceramics">
-        <Img
-          fluid={data.printedImage.childImageSharp.fluid}
+        <StaticImage
+          src="../assets/images/3d-printed.jpg"
           alt="Stephy Miehle"
           className="object-cover object-center w-full h-72"
+          width={800}
         />
         <div className="px-3 -mt-4">
           <WashiHeader
@@ -151,27 +156,6 @@ export const query = graphql`
     }
     siteBuildMetadata {
       buildTime
-    }
-    avatarImage: file(relativePath: { eq: "clay-selfie.jpg" }) {
-      childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-    handBuiltImage: file(relativePath: { eq: "hand-built.jpg" }) {
-      childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-    printedImage: file(relativePath: { eq: "3d-printed.jpg" }) {
-      childImageSharp {
-        fluid(quality: 70) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
     }
   }
 `;
