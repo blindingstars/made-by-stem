@@ -73,6 +73,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
           height={85}
           width={85}
           layout="fixed"
+          placeholder="blurred"
           alt="Stephy Miehle"
           className="object-cover object-center w-24 h-full mx-auto border-8 border-white rounded-full md:border-0 md:w-full"
         />
@@ -106,6 +107,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
           alt="Stephy Miehle"
           className="object-cover object-center w-full h-72"
           width={800}
+          placeholder="blurred"
         />
         <div className="px-3 -mt-4">
           <WashiHeader
@@ -126,6 +128,7 @@ const HomePage: React.FC<PageProps<GatsbyTypes.HomepageQuery>> = ({ data }) => (
           alt="Stephy Miehle"
           className="object-cover object-center w-full h-72"
           width={800}
+          placeholder="blurred"
         />
         <div className="px-3 -mt-4">
           <WashiHeader
